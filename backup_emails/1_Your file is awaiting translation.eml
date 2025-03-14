@@ -1,0 +1,321 @@
+Delivered-To: juan.investur@gmail.com
+Received: by 2002:a05:6520:323:b0:2b6:cd01:3a81 with SMTP id gl3csp12572lkb;
+        Thu, 13 Mar 2025 08:30:03 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHaqfZk4+opJvVXqyOMzbScbsAezjJlg6JxRFz9WiYzG0pPPV+KeFi/zyT1h7luJto4lJkb
+X-Received: by 2002:a2e:bea2:0:b0:30b:b9e4:13cd with SMTP id 38308e7fff4ca-30c46b3d67dmr658261fa.2.1741879803104;
+        Thu, 13 Mar 2025 08:30:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1741879803; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LXG9cL7Nw/aacF0aaRbny0W9QaHdcXaHEn3o5AdxPkPMPdD4jyrbuWdU65rGbm6792
+         uckGVRAY4gY3aHMYIzAdjfFMRqfFwuNCSkd9lEvHI7cQComHP88KdEQ3PjCCOZohRsEB
+         QqEXuu4OhriLNAVgYe01MNstwEcfyxlzEXbrq3J//mDhX+ZKbyCsZ8Ta98JDQEqBZwov
+         ejwb6V4VVNWFO7iJLwJcxXLIrKl4OlDemB07Ijog9znvM+Vg4XJML0E6zrRNvFkRXUJx
+         QC9JI/NZ4avusY/o1ewT6CAJ0Edywgpc1bNr0s7mtfiw2vQAjTvRpL0KCh64Y/P6aGeV
+         q7LA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=mime-version:to:from:subject:date:message-id:dkim-signature;
+        bh=rFPyGykPePKktGv+x6JOFJ784/wRbzGvKl60rUefENQ=;
+        fh=h5Wo9SqMA6Hy9JrZsNTiHsOlXQpM9Wt0ILehfc/EDs4=;
+        b=a6jz9QLtuxIao4yhQbQNwTnD2PA/yj6KZqvMY0U73wqZquUDxoxK/1deGREIawP3UJ
+         zF+WQR7h9hc73qlHlntghkE3cmhTUSnSfwMw/WaL8MyLRzNYFjPxvP9AG04Tko7ymE35
+         JSxUPckkN4+Rmsp/wZQcrgvs65YFnWN2nlJcuSpiuVAL1iJ+Ns2prYDrYt1OSkzQwDjN
+         Iq8WldFqEQP5kRvDsrPGVr0sPxxivuasHiJNdAMsrTBEkK7lULszvnTH93L5g8lEOSq4
+         1z6OiBKLng9XPK2n6Yfvw/Hao4YxJIAJh7y2CtHMFknUFcMNujP7hfdw7ZuQ+ztaadm6
+         WXQg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@doctranslator.com header.s=mail header.b=H7qpLYDC;
+       spf=pass (google.com: domain of noreply@doctranslator.com designates 95.216.43.222 as permitted sender) smtp.mailfrom=noreply@doctranslator.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=doctranslator.com
+Return-Path: <noreply@doctranslator.com>
+Received: from doctranslator.com ([95.216.43.222])
+        by mx.google.com with ESMTPS id 38308e7fff4ca-30c3f17f9aesi8388351fa.209.2025.03.13.08.30.02
+        for <juan.investur@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 08:30:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of noreply@doctranslator.com designates 95.216.43.222 as permitted sender) client-ip=95.216.43.222;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@doctranslator.com header.s=mail header.b=H7qpLYDC;
+       spf=pass (google.com: domain of noreply@doctranslator.com designates 95.216.43.222 as permitted sender) smtp.mailfrom=noreply@doctranslator.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=doctranslator.com
+Received: from [127.0.0.1] (localhost.localdomain [127.0.0.1])
+	by doctranslator.com (Postfix) with ESMTP id CEEC413402F8
+	for <juan.investur@gmail.com>; Thu, 13 Mar 2025 11:30:02 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=doctranslator.com;
+	s=mail; t=1741879802;
+	bh=S9q3VyM0Z+K97TCmsVX3QpmTHWknrOBSF0h3IFptbsQ=;
+	h=Date:Subject:From:To:From;
+	b=H7qpLYDCqRDB9z6+0U53yR4ufZ/TEVMojskEvQQ07u59wVBz/D1F0lc9QNfKCjSGj
+	 vv5k9XGQ7IgqH6w/OFKdLKAUjzbLEIG3e1AB/iCXXzCfMIe3HcyLgh29wBrRHKgmME
+	 JN0+MSanJUfOQmQ0cPi5sOZLd6+n50LrqvN63HjNTeL1gVtGsM2YLeuzn76a41EiKJ
+	 iJvgWe79hPPI8DHscP1R8JHUoNB2ihjqEspjtm3wZZgMfXa6RV/WerNxJHRhRLhWJM
+	 0Z+EPcMwmb2rbWiVtU3lyigITrzBbd5GE8E6gdfnvW346i5nxOVzeVySrDI9SPoYaV
+	 hdCoL/8ZGylyw==
+Message-ID: <2afdcc32784f31f7377d72f501fbb40b@swift.generated>
+Date: Thu, 13 Mar 2025 11:30:02 -0400
+Subject: Your file is awaiting translation
+From: DocTranslator <noreply@doctranslator.com>
+To: "juan.investur" <juan.investur@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_1741879802_12f154786b1480d550dc978baafd39bb_=_"
+
+
+--_=_swift_1741879802_12f154786b1480d550dc978baafd39bb_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+[DocTranslator](https://dashboard.doctranslator.com)
+
+# The file is awa=
+iting translation
+
+Hi juan.investur,
+
+Your file Final_Fully_Transla=
+ted_Proposal.docx for translation was successfully uploaded but not transla=
+ted.
+
+View files: https://dashboard.doctranslator.com/translations
+=
+
+Thanks,
+DocTranslator
+
+=C2=A9 2025 DocTranslator. All rights reser=
+ved.
+
+
+--_=_swift_1741879802_12f154786b1480d550dc978baafd39bb_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.=
+w3.org/1999/xhtml">
+<head>
+<meta name=3D"viewport" content=3D"width=3Dd=
+evice-width, initial-scale=3D1.0">
+<meta http-equiv=3D"Content-Type" cont=
+ent=3D"text/html; charset=3DUTF-8">
+<meta name=3D"color-scheme" content=
+=3D"light">
+<meta name=3D"supported-color-schemes" content=3D"light">
+<=
+style>
+@media  only screen and (max-width: 600px) {
+.inner-body {
+wid=
+th: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}=
+
+
+@media  only screen and (max-width: 500px) {
+.button {
+width: 100=
+% !important;
+}
+}
+</style>
+</head>
+<body style=3D"box-sizing: bor=
+der-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto=
+, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Seg=
+oe UI Symbol'; position: relative; -webkit-text-size-adjust: none; backgrou=
+nd-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: =
+0; padding: 0; width: 100% !important;">
+
+<table class=3D"wrapper" widt=
+h=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpaddin=
+g: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: =
+#edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align=3D"center=
+" style=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSyst=
+emFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoj=
+i', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table cla=
+ss=3D"content" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"box-sizing: border-box; font-family: -apple-system, B=
+linkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple=
+ Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -pr=
+emailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; =
+margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class=3D"header" style=
+=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text=
+-align: center;">
+<a href=3D"https://dashboard.doctranslator.com" style=
+=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-=
+size: 19px; font-weight: bold; text-decoration: none; display: inline-block=
+;">
+DocTranslator
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>=
+
+<td class=3D"body" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFo=
+nt, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', =
+'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpad=
+ding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-colo=
+r: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7=
+; margin: 0; padding: 0; width: 100%;">
+<table class=3D"inner-body" align=
+=3D"center" width=3D"570" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"box-sizing: border-box; font-family: -apple-system, Blink=
+MacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Col=
+or Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premai=
+ler-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; bac=
+kground-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-w=
+idth: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0,=
+ 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body conte=
+nt -->
+<tr>
+<td class=3D"content-cell" style=3D"box-sizing: border-box;=
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvet=
+ica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Sy=
+mbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style=
+=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-=
+size: 18px; font-weight: bold; margin-top: 0; text-align: left;">The file i=
+s awaiting translation</h1>
+<p style=3D"box-sizing: border-box; font-fami=
+ly: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial=
+, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; pos=
+ition: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-a=
+lign: left;">Hi juan.investur,</p>
+<p style=3D"box-sizing: border-box; fo=
+nt-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica=
+, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbo=
+l'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0;=
+ text-align: left;">Your file Final_Fully_Translated_Proposal.docx for tran=
+slation was successfully uploaded but not translated.</p>
+<table class=3D=
+"action" align=3D"center" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"box-sizing: border-box; font-family: -appl=
+e-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-se=
+rif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: re=
+lative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-wi=
+dth: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%;"=
+>
+<tr>
+<td align=3D"center" style=3D"box-sizing: border-box; font-famil=
+y: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,=
+ sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; posi=
+tion: relative;">
+<table width=3D"100%" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box; font=
+-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, =
+Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'=
+; position: relative;">
+<tr>
+<td align=3D"center" style=3D"box-sizing: =
+border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Rob=
+oto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', '=
+Segoe UI Symbol'; position: relative;">
+<table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-=
+box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, He=
+lvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe U=
+I Symbol'; position: relative;">
+<tr>
+<td style=3D"box-sizing: border-b=
+ox; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Hel=
+vetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI=
+ Symbol'; position: relative;">
+<a href=3D"https://dashboard.doctranslato=
+r.com/translations" class=3D"button button-primary" target=3D"_blank" rel=
+=3D"noopener" style=3D"box-sizing: border-box; font-family: -apple-system, =
+BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Appl=
+e Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -w=
+ebkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inl=
+ine-block; overflow: hidden; text-decoration: none; background-color: #2d37=
+48; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; bord=
+er-right: 18px solid #2d3748; border-top: 8px solid #2d3748;">View files</a=
+>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<=
+/table>
+<p style=3D"box-sizing: border-box; font-family: -apple-system, B=
+linkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple=
+ Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; fon=
+t-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Thanks,=
+<br>
+DocTranslator</p>
+
+
+
+</td>
+</tr>
+</table>
+</td>
+</tr=
+>
+
+<tr>
+<td style=3D"box-sizing: border-box; font-family: -apple-syst=
+em, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, '=
+Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative=
+;">
+<table class=3D"footer" align=3D"center" width=3D"570" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box=
+; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve=
+tica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI S=
+ymbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspaci=
+ng: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: cen=
+ter; width: 570px;">
+<tr>
+<td class=3D"content-cell" align=3D"center" s=
+tyle=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemF=
+ont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',=
+ 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw;=
+ padding: 32px;">
+<p style=3D"box-sizing: border-box; font-family: -apple=
+-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-ser=
+if, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: rel=
+ative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; =
+text-align: center;">=C2=A9 2025 DocTranslator. All rights reserved.</p>
+=
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</=
+table>
+</body>
+</html>
+
+--_=_swift_1741879802_12f154786b1480d550dc978baafd39bb_=_--
+
