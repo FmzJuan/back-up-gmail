@@ -4,8 +4,8 @@ import os
 from email.header import decode_header
 
 # Configuração da conta Gmail
-EMAIL = "juan.investur@gmail.com"
-SENHA = "ilts eais udyn fejz"   # Use a senha gerada no App Passwords
+EMAIL = "juanmeneghesso2@gmail.com"
+SENHA = "airx bdwl owoa iflk"   # Use a senha gerada no App Passwords
 IMAP_SERVER = "imap.gmail.com"
 IMAP_PORT = 993
 BACKUP_DIR = "backup_emails"

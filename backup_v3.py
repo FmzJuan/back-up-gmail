@@ -23,13 +23,20 @@ def conectar_gmail():
         return None
 
 def salvar_email(uid, email_msg):
-    """Salva o e-mail como arquivo .eml e move para a lixeira após o backup."""
+    """Salva o e-mail como arquivo .eml e marca para exclusão."""
+
+    # Decodificar o assunto corretamente, lidando com diferentes encodings
     subject, encoding = decode_header(email_msg["Subject"])[0]
-    if isinstance(subject, bytes) and encoding:
-        subject = subject.decode(encoding)
-    
-    subject = str(subject) if subject else "email_sem_assunto"
-    subject = "".join(c if c.isalnum() or c in " _-" else "_" for c in subject)
+
+    if isinstance(subject, bytes):
+        try:
+            subject = subject.decode(encoding if encoding else "utf-8")
+        except (UnicodeDecodeError, TypeError):
+            subject = subject.decode("latin-1", errors="ignore")  # Evita erro de decodificação
+
+    subject = subject.strip() if subject else "email_sem_assunto"
+    subject = "".join(c if c.isalnum() or c in " _-" else "_" for c in subject)  # Remove caracteres inválidos
+
     filename = f"{uid}_{subject}.eml"
 
     # Criar pasta de backup se não existir
@@ -43,17 +50,17 @@ def salvar_email(uid, email_msg):
     print(f"[✔] E-mail salvo: {filename}")
 
 def fazer_backup():
-    """Baixa e-mails dos últimos 3 anos, salva e depois exclui do Gmail."""
+    """Baixa e-mails dos últimos 2 anos, salva e exclui permanentemente do Gmail."""
     mail = conectar_gmail()
     if not mail:
         return
 
     mail.select("inbox")  # Acessa a caixa de entrada
 
-    # Define a data de corte (3 anos atrás)
-    data_corte = (datetime.datetime.now() - datetime.timedelta(days=0*365)).strftime("%d-%b-%Y")
+    # Define a data de corte (2 anos atrás)
+    data_corte = (datetime.datetime.now() - datetime.timedelta(days=2*365)).strftime("%d-%b-%Y")
 
-    # Busca apenas e-mails antigos (3 anos ou mais)
+    # Busca apenas e-mails antigos (2 anos ou mais)
     status, messages = mail.search(None, f'BEFORE {data_corte}')
     emails_ids = messages[0].split()
 
@@ -75,12 +82,14 @@ def fazer_backup():
                 email_msg = email.message_from_bytes(response_part[1])
                 salvar_email(uid.decode(), email_msg)
 
-        # Move o e-mail para a lixeira e o apaga
-        mail.store(uid, "+X-GM-LABELS", "\\Trash")  # Move para a lixeira
-        mail.expunge()  # Apaga permanentemente
+        # Marca para exclusão
+        mail.store(uid, "+FLAGS", "\\Deleted")
+
+    # Apaga permanentemente os e-mails marcados
+    mail.expunge()
 
     mail.logout()
-    print("[✔] Backup concluído! E-mails antigos excluídos.")
+    print("[✔] Backup concluído! E-mails antigos excluídos permanentemente.")
 
 if __name__ == "__main__":
     fazer_backup()

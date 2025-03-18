@@ -1,0 +1,1780 @@
+Delivered-To: jmenega3@gmail.com
+Received: by 2002:a05:7022:2181:b0:5f:d896:477a with SMTP id bh1csp3310535dlb;
+        Wed, 15 Mar 2023 06:07:56 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+PMWzgxVPAziXNpaZIgM0bKYShk6yluYvJ0c29F3pp2hmP84Tn1Tuf1aJzshaLGEhahyeh
+X-Received: by 2002:a05:651c:1a2b:b0:298:6a97:25b1 with SMTP id by43-20020a05651c1a2b00b002986a9725b1mr985860ljb.16.1678885675905;
+        Wed, 15 Mar 2023 06:07:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1678885675; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Qu0/l++FJz0GnUcRqjXc9P65bGeVv7ctNZ8HFaoacg06UGqUDl6cF2VSV+AFK6ZDGh
+         u63UrXfxkMkS9rOPPHZt3Sx+J9JafgUSMVF/B6HwNnvzv4B27YF97v0qiISaesEvEtr+
+         qjejnw2QfmJbfo5kCP1cfHU86r6Y2wvSl3Ufe2bX6T8Exq3KD2o1NqU1Wmf+/NRFBaIf
+         tT5z3ICNLy7XQjcLCeV1gw+AJQmhM/9Esixec1FdeSeDAj1UFTyrk1Sg9mi+AYlG6tuc
+         FyANGGswxPilSnS88VBONwE/UVIOhZQ7BAsA1LhgGejNlh+0kEf6CUmlQzKjrX37MmMM
+         RWqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:message-id:mime-version:subject:to:from
+         :dkim-signature:dkim-signature;
+        bh=Wpw9sipDKWZ/QI5vSHw63AbDgLsSNY2VUiYMlfqAbT4=;
+        b=EXp2zOfhYhL32Iy4Ms+GmEN/+cdlGp0rH5zLE+6S/RtzZ2OohXdJWAZT91KBqhxEFO
+         K8MmjpqZtew40+M3jDc7qHnaT313wBDZrZFRyKsTPxPodw5EODzmcDQHHxeF5HvZMFrw
+         Iam+a8Jk7mt7HgkmS7eUIU2FdqGMt3p84doMu7bpkqdQwSvsT+n6Om1CBS+hZAWSvSLu
+         c0bu+wSzJsmzM9e3b5yfWyIoRocXE5KNcmdkdELrVDVPlQLHyrx9TS4z1dPcAAR9WcQh
+         gtV4VHLdUQ53EpjZt0OUctLMEBvnxq9ujZhTVycPAVpjjOSlzLpxlqF0gC7+Wl8y5g0j
+         wO9g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@nuinvest.com.br header.s=gkddcs7eu75pzvnivrcpcc2kbdzjoxl2 header.b=XdCNibUW;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=cja1dAcD;
+       spf=pass (google.com: domain of 01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@mail.nuinvest.com.br designates 54.240.11.142 as permitted sender) smtp.mailfrom=01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@mail.nuinvest.com.br;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=nuinvest.com.br
+Return-Path: <01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@mail.nuinvest.com.br>
+Received: from a11-142.smtp-out.amazonses.com (a11-142.smtp-out.amazonses.com. [54.240.11.142])
+        by mx.google.com with ESMTPS id z9-20020a2e4c09000000b00298916e80bbsi2430589lja.142.2023.03.15.06.07.55
+        for <jmenega3@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 15 Mar 2023 06:07:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@mail.nuinvest.com.br designates 54.240.11.142 as permitted sender) client-ip=54.240.11.142;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@nuinvest.com.br header.s=gkddcs7eu75pzvnivrcpcc2kbdzjoxl2 header.b=XdCNibUW;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=cja1dAcD;
+       spf=pass (google.com: domain of 01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@mail.nuinvest.com.br designates 54.240.11.142 as permitted sender) smtp.mailfrom=01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@mail.nuinvest.com.br;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=nuinvest.com.br
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=gkddcs7eu75pzvnivrcpcc2kbdzjoxl2; d=nuinvest.com.br;
+	t=1678885675;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date;
+	bh=job6jvoznLAXRykH01daKC76Uy5QE1/8SRkYs7FuimA=;
+	b=XdCNibUWRVO0QmulVw9D7dqup31pGWXtA6KfUXKhjfxDfuKCpiIdXz+HK5uSIHsb
+	IUIbqW6OnK/hNJBXvte7PdwBODXCAX/9ADL3ety7w0g/nPvgxxsPqIQ/qEa7s0RcGnF
+	bnM3NjQynpqxEpK8d7T4ir/KsfP93i0d5vITLyn8=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1678885674;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date:Feedback-ID;
+	bh=job6jvoznLAXRykH01daKC76Uy5QE1/8SRkYs7FuimA=;
+	b=cja1dAcDsCuU2L7kIn7flKiUEwJDTBCBxt/PgqaBAWgLx4F20lZu30wdxe/cI/3w
+	pUuogBs+AoWWARScj57VybS8lBZn+t6qLEhI7aFc5WBovLAcbHuVoL9GMSE0/4pmLgb
+	nA0ChUOoBn8ecWPuAF+ClvrA9wJ+tbNf6arMgtag=
+From: nuinvest@nuinvest.com.br
+To: jmenega3@gmail.com
+Subject: =?UTF-8?Q?Solicita=C3=A7=C3=A3o_de_Retirada_-_Em_an=C3=A1lise?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_Part_519066_1829330037.1678885674868"
+Message-ID: <01000186e5625f70-1a10c9b5-ae74-4711-91ed-8c0089eecefd-000000@email.amazonses.com>
+Date: Wed, 15 Mar 2023 13:07:54 +0000
+Feedback-ID: 1.us-east-1.dfHCchhsbM/TEwLc5THXBDdGO2R5WPzcQwFUmtAsL2Y=:AmazonSES
+X-SES-Outgoing: 2023.03.15-54.240.11.142
+
+------=_Part_519066_1829330037.1678885674868
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<img src=3D"https://pixel.app.returnpath.net/pixel.gif?r=3D0edc903e764364f2=
+ac5d53bd15580f4420e6595e" width=3D"1" height=3D"1">
+<img src=3D"https://pixel.monitor1.returnpath.net/pixel.gif?r=3D0edc903e764=
+364f2ac5d53bd15580f4420e6595e" width=3D"1" height=3D"1">
+
+
+<!-- Define Charset -->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+
+<!-- Responsive Meta Tag -->
+<meta name=3D"viewport" content=3D"width=3Ddevice-width; initial-scale=3D1.=
+0; maximum-scale=3D1.0;">
+
+<title></title>
+<style type=3D"text/css">
+  body {
+    width: 100%;
+    background-color: #D7D7D7;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    mso-margin-top-alt: 0px;
+    mso-margin-bottom-alt: 0px;
+    mso-padding-alt: 0px 0px 0px 0px;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+
+  html {
+    width: 100%;
+  }
+
+  a:link,
+  span.MsoHyperlink {
+    mso-style-priority: 99;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  /* iOS BLUE LINKS */
+  a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+
+
+  /* ----------- responsivity ----------- */
+
+  @media only screen and (max-width: 640px) {
+
+    /*----- main image -------*/
+    *[class=3Dimage600] img {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    *[class=3Dfont46] {
+      font-size: 30px !important;
+      line-height: 36px !important;
+    }
+
+    *[class=3Dfont22] {
+      font-size: 15px !important;
+      line-height: 20px !important;
+    }
+
+    *[class=3Dfont14] {
+      font-size: 11px !important;
+      line-height: 15px !important;
+    }
+
+    /*-------- Container --------*/
+    *[class=3Dmin_width] {
+      min-width: 100% !important
+    }
+
+    *[class=3Dcontainer100] {
+      width: 332px !important;
+      display: block !important
+    }
+
+  }
+</style>
+
+
+
+
+<table border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgco=
+lor=3D"D7D7D7">
+
+  <tbody>
+    <tr>
+      <td align=3D"center">
+        <div>
+  <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" ><tr><td =
+style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><v:re=
+ct style=3D"width:600;" xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t=
+rue" stroke=3D"false"><v:fill origin=3D"0.5, 0" position=3D"0.5, 0" src=3D"=
+https://static.cdn.responsys.net/i9/responsysimages/easynvest/contentlibrar=
+y/imagensupload/header-purple-line.png" type=3D"tile" size=3D"1,1" aspect=
+=3D"atleast" /><v:textbox style=3D"mso-fit-shape-to-text:true" inset=3D"0,0=
+,0,0"><![endif]-->
+  <div style=3D"background:url(https://static.cdn.responsys.net/i9/responsy=
+simages/easynvest/contentlibrary/imagensupload/header-purple-line.png) cent=
+er top / cover repeat;background-position:center top;background-repeat:repe=
+at;background-size:cover;margin:0px auto;max-width:600px;">
+    <div style=3D"line-height:0;font-size:0;">
+      <table align=3D"center" background=3D"https://static.cdn.responsys.ne=
+t/i9/responsysimages/easynvest/contentlibrary/imagensupload/header-purple-l=
+ine.png" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"background:url(https://static.cdn.responsys.net/i9/responsysi=
+mages/easynvest/contentlibrary/imagensupload/header-purple-line.png) center=
+ top / cover repeat;background-position:center top;background-repeat:repeat=
+;background-size:cover;width:100%; max-width:600px;height: 90px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style=3D"direction:ltr;=
+font-size:0px;padding:0;text-align:center;">
+                                                    <!--[if mso | IE]><tabl=
+e role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><t=
+r><td class=3D"" style=3D"vertical-align:top;width:600px;" ><![endif]-->
+                                                    <div class=3D"mj-column=
+-per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;direc=
+tion:ltr;display:inline-block;vertical-align:top;width:100%;">
+                                                        <table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td sty=
+le=3D"vertical-align:top;padding:0;">
+                                                                        <ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+width=3D"100%">
+                                                                           =
+ <tbody>
+                                                                           =
+     <tr>
+                                                                           =
+         <td align=3D"center" style=3D"font-size:0px;padding:0;word-break:b=
+reak-word;">
+                                                                           =
+             <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+                                                                           =
+                 <tbody>
+                                                                           =
+                     <tr>
+                                                                           =
+                         <td style=3D"width:100%;"><img alt=3D"NuInvest Log=
+o" src=3D"https://s3.sa-east-1.amazonaws.com/br.com.easynvest.images/logos/=
+logo-nuinvest.png" style=3D"border:0;display:block;outline:none;text-decora=
+tion:none;font-size:13px;" width=3D"170" height=3D"31px"></td>
+                                                                           =
+                     </tr>
+                                                                           =
+                 </tbody>
+                                                                           =
+             </table>
+                                                                           =
+         </td>
+                                                                           =
+     </tr>
+                                                                           =
+ </tbody>
+                                                                        </t=
+able>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!--[if mso | IE]></td>=
+</tr></table><![endif]-->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+    </div>
+  </div>
+</div>
+               =20
+             =20
+              <!--[if mso | IE]></v:textbox></v:rect></td></tr></table><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+              <div style=3D"background: #FFFFFF;background-color: #FFFFFF;m=
+argin:0px auto;max-width:600px;">
+                <table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"background:transparent;backgro=
+und-color:transparent;width:100%;">
+                  <tbody>
+                    <tr>
+                      <td style=3D"direction:ltr;font-size:0px;padding:0;te=
+xt-align:center;">
+                        <!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"ve=
+rtical-align:top;width:600px;" ><![endif]-->
+                        <div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:top;width:100%;">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%">
+                            <tbody>
+                              <tr>
+                                <td style=3D"vertical-align:top;padding:0 2=
+0px;">
+                                  <table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" width=3D"100%">
+                                    <tbody>
+                                      <tr>
+                                        <td align=3D"center" style=3D"font-=
+size:0px;padding:26px 0;word-break:break-word;">
+                                          <div style=3D"font-family:Arial, =
+sans-serif;font-size:32px;font-weight:bold;line-height:38px;text-align:cent=
+er;color:#555555;">
+                                            <span style=3D"color:#555555">R=
+etirada</span>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!--[if mso | IE]></td></tr></table><![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:6=
+00px;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><v:rect style=3D"width:600px;" xmlns:v=3D"urn:sche=
+mas-microsoft-com:vml" fill=3D"true" stroke=3D"false"><v:fill origin=3D"0.5=
+, 0" position=3D"0.5, 0" src=3D"https://static.cdn.responsys.net/i9/respons=
+ysimages/easynvest/contentlibrary/imagensupload/header-purple-line.png" typ=
+e=3D"tile" size=3D"1,1" aspect=3D"atleast" /><v:textbox style=3D"mso-fit-sh=
+ape-to-text:true" inset=3D"0,0,0,0"><![endif]-->
+              <div style=3D"background:url(https://static.cdn.responsys.net=
+/i9/responsysimages/easynvest/contentlibrary/imagensupload/header-purple-li=
+ne.png) center top / cover repeat;background-position:center top;background=
+-repeat:repeat;background-size:cover;margin:0px auto;max-width:600px;">
+                <div style=3D"line-height:0;font-size:0;">
+                  <table align=3D"center" background=3D"https://static.cdn.=
+responsys.net/i9/responsysimages/easynvest/contentlibrary/imagensupload/hea=
+der-purple-line.png" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:url(https://static.cdn.responsys.net/=
+i9/responsysimages/easynvest/contentlibrary/imagensupload/header-purple-lin=
+e.png) center top / cover repeat;background-position:center top;background-=
+repeat:repeat;background-size:cover;width:100%;">
+                    <tbody>
+                      <tr>
+                        <td style=3D"direction:ltr;font-size:0px;padding:0;=
+text-align:center;">
+                          <!--[if mso | IE]><table role=3D"presentation" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"=
+vertical-align:top;width:600px;" ><![endif]-->
+                          <div class=3D"mj-column-per-100 mj-outlook-group-=
+fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bl=
+ock;vertical-align:top;width:100%;">
+                            <table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%">
+                              <tbody>
+                                <tr>
+                                  <td style=3D"vertical-align:top;padding:2=
+px 0;">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" width=3D"100%">
+                                      <tbody></tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!--[if mso | IE]></td></tr></table><![endif]-->
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--[if mso | IE]></v:textbox></v:rect></td></tr></table><![e=
+ndif]-->
+           =20
+
+            </td></tr><tr>
+              <td align=3D"center">
+                <table class=3D"container600" align=3D"center" border=3D"0"=
+ width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFFFF" styl=
+e=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"padding:0 10px">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-=
+collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+
+
+                          <tbody>
+                            <tr>
+                              <td align=3D"left" style=3D"font-family:Arial=
+, Tahoma; Font-size:16px; line-height:22px; font-weight:normal; font-style:=
+normal; color:#251E1E; padding:30px 0 32px 0">
+                                <span style=3D"color:#4C0677; font-weight:b=
+old; Font-size:22px">Recebemos sua solicita=C3=A7=C3=A3o
+                                  de Retirada no valor de R$ 3,40.</span>
+                                <br> <br>
+
+                                Ol=C3=A1, Juan Meneghesso Vildoso
+                                <br> <br>
+                                Aguarde at=C3=A9 que o nosso Financeiro efe=
+tive sua solicita=C3=A7=C3=A3o. <br> <br>
+
+                                Dados da retirada solicitada: <br>
+                                Conta Origem: 3953929 <br>
+                                Banco Destino: 260 <br>
+                                Ag=C3=AAncia: 0001 <br>
+                                Conta Destino: 47203808 <br>
+                                Valor: R$ 3,40 <br> <br>
+                                Lembre-se: <br>
+
+                                As retiradas solicitadas at=C3=A9 as 15h30,=
+ nos dias =C3=BAteis, ser=C3=A3o processadas no mesmo dia.
+                                <br>
+                                As retiradas solicitadas ap=C3=B3s as 15h30=
+, ser=C3=A3o processadas no pr=C3=B3ximo dia =C3=BAtil. <br> <br>
+                                Aten=C3=A7=C3=A3o: <br>
+
+                                O processamento das retiradas s=C3=B3 ocorr=
+e nos dias =C3=BAteis em hor=C3=A1rio comercial, conforme
+                                funcionamento banc=C3=A1rio.
+                                <br> <br>
+                                Os recursos enviados na NuInvest n=C3=A3o p=
+odem ser resgatados no mesmo dia do envio.
+
+
+
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+
+                    </tr>
+
+
+                    <tr>
+                      <td align=3D"center">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:0 10px"=
+>
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+
+
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"center" style=3D"padding=
+:0px 0 0 0">
+                                        <table align=3D"center" border=3D"0=
+" width=3D"" bgcolor=3D"#3CCBDA" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; b=
+order-radius:8px">
+                                        </table>
+                                      </td>
+                                    </tr>
+
+                                    <tr>
+                                      <td align=3D"left" style=3D"font-fami=
+ly:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:normal; fon=
+t-style:normal; color:#251E1E; padding:10px 0 20px 0">
+                                        Bons investimentos <br>
+                                        <b>Equipe NuInvest</b>
+
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+
+                    <tr bgcolor=3D"#FFFFFF">
+                      <td align=3D"center" style=3D"padding:0 10px">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:20px 0 =
+40px 0; border-top:1px solid #EDEDE3; border-bottom:1px solid #EDEDE3">
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                  <tbody>
+                                    <tr>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"150">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"left" style=3D"f=
+ont-family:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:nor=
+mal; font-style:normal; color:#251E1E; padding:16px 0 0 0">
+                                                Siga a NuInvest
+                                                nas redes sociais
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"28"></td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"332">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"center" style=3D=
+"padding:20px 0 0 0">
+                                                <table class=3D"container60=
+0" align=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table=
+-rspace:0pt">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+www.facebook.com/easynvest"><img src=3D"https://s3.sa-east-1.amazonaws.com/=
+br.com.easynvest.images/logos/facebook-icon-purple.png" style=3D"display:bl=
+ock" width=3D"50" height=3D"50" border=3D"0" alt=3D"facebook"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"http://y=
+outube.com/easynvest"><img src=3D"https://s3.sa-east-1.amazonaws.com/br.com=
+.easynvest.images/logos/youtube-icon-purple.png" style=3D"display:block" wi=
+dth=3D"50" height=3D"50" border=3D"0" alt=3D"youtube"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+www.instagram.com/easynvest/"><img src=3D"https://s3.sa-east-1.amazonaws.co=
+m/br.com.easynvest.images/logos/instagram-icon-purple.png" style=3D"display=
+:block" width=3D"50" height=3D"50" border=3D"0" alt=3D"instagram"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+twitter.com/easynvest"><img src=3D"https://s3.sa-east-1.amazonaws.com/br.co=
+m.easynvest.images/logos/twitter-icon-purple.png" style=3D"display:block" w=
+idth=3D"50" height=3D"50" border=3D"0" alt=3D"twitter"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+www.linkedin.com/company/easynvest---t-tulo-corretora-de-valores-sa/"><img =
+src=3D"https://s3.sa-east-1.amazonaws.com/br.com.easynvest.images/logos/lin=
+kedin-icon-purple.png" style=3D"display:block" width=3D"50" height=3D"50" b=
+order=3D"0" alt=3D"linkedin"></a>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <td align=3D"center">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:20px 10=
+px 35px 10px;">
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                  <tbody>
+                                    <tr>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"230">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"left" style=3D"f=
+ont-family:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:nor=
+mal; font-style:normal; color:#251E1E; padding:20px 0 0 0">
+                                                <span style=3D"font-weight:=
+bold; color:#4C0677">Precisa de
+                                                  ajuda?</span><br>
+                                                <a href=3D"mailto:nuinvest@=
+nuinvest.com.br" style=3D"text-decoration:none; color:#251E1E">nuinvest@nui=
+nvest.com.br</a><br>
+                                                ou por telefone <a href=3D"=
+tel:11 3841-4515" style=3D"text-decoration:none; color:#251E1E">11 3841-451=
+5</a>,<br>
+                                                em dias =C3=BAteis das 9h =
+=C3=A0s 18h
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"45"></td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"235">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"left" style=3D"f=
+ont-family:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:nor=
+mal; font-style:normal; color:#251E1E; padding:20px 0 0 0">
+                                                <span style=3D"font-weight:=
+bold; color:#4C0677">Ouvidoria</span><br>
+                                                <a href=3D"mailto:ouvidoria=
+@nuinvest.com.br" style=3D"text-decoration:none; color:#251E1E">ouvidoria@n=
+uinvest.com.br</a><br>
+                                                ou por telefone <a href=3D"=
+tel:0800 727 7784" style=3D"text-decoration:none; color:#251E1E">0800 727 7=
+784</a>,<br>
+                                                em dias =C3=BAteis das 9h =
+=C3=A0s 18h
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <td align=3D"center">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:0 10px =
+0 10px;">
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"left" style=3D"font-fami=
+ly:Arial, Tahoma; Font-size:10px; line-height:15px; font-weight:normal; fon=
+t-style:normal; color:#251E1E; padding:0 0 40px 0; text-align:justify">
+                                        A Easynvest - T=C3=ADtulo Corretora=
+ de Valores SA, inscrita no CNPJ/ME sob n=C2=BA 62.169.875/0001-79 ("NuInve=
+st"), institui=C3=A7=C3=A3o financeira autorizada a funcionar pelo Banco Ce=
+ntral do Brasil, informa que os recursos de clientes s=C3=A3o mantidos em s=
+uas contas de registro que s=C3=A3o utilizadas exclusivamente pela NuInvest=
+ para registro das opera=C3=A7=C3=B5es de cada cliente, como previsto no ar=
+tigo 14-A do Regulamento Anexo =C3=A0 Resolu=C3=A7=C3=A3o CMN n=C2=BA 1.655=
+. As contas de registro n=C3=A3o se confundem com as contas de pagamento, q=
+ue est=C3=A3o definidas pelos artigos 6=C2=BA, inciso IV, e 12 da Lei n=C2=
+=BA 12.865/2013, e os recursos mantidos nas contas de registro n=C3=A3o pos=
+suem regime jur=C3=ADdico equivalente ao dos recursos mantidos em contas de=
+ pagamento, nos termos previstos no artigo 12 da Lei n=C2=BA 12.865/2013. <=
+br><br>
+Toda transmiss=C3=A3o de ordem por meio digital est=C3=A1 sujeita a interru=
+p=C3=A7=C3=B5es ou atrasos, podendo impedir ou prejudicar o envio de ordens=
+ ou a recep=C3=A7=C3=A3o de informa=C3=A7=C3=B5es atualizadas. <br><br>
+Confira demais informa=C3=A7=C3=B5es no site da Comiss=C3=A3o de Valores Mo=
+bili=C3=A1rios (CVM) clicando <a href=3D"https://www.gov.br/cvm/pt-br" targ=
+et=3D"_blank">aqui</a>.=20
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td align=3D"center">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" data-module=3D"module18" data-thumb=3D"thumbnails/thumb15.jpg" mc:re=
+peatable=3D"FOOTER" mc:variant=3D"MODULE" width=3D"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" bgcolor=3D"#ffffff" clas=
+s=3D"mobile-padding" data-bgcolor=3D"Light bgcolor" valign=3D"top" width=3D=
+"100%">
+                                <!--[if (gte mso 9)|(IE)]>
+                                   <table width=3D"550" align=3D"center" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                                      <tr>
+                                         <td>
+                                            <![endif]-->
+                                <table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"footer">
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"center" style=3D"font-si=
+ze: 0;padding-bottom: 0;" valign=3D"top">
+                                        <!--[if (gte mso 9)|(IE)]>
+                                                        <table align=3D"cen=
+ter" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"550">
+                                                           <tr>
+                                                              <td align=3D"=
+center" valign=3D"top" width=3D"275">
+                                                                 <![endif]-=
+->
+                                        <div class=3D"mobile-wrapper" style=
+=3D"display:inline-block;max-width:100%;vertical-align:top;">
+                                          <table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"max-width" width=3D"100%">
+                                            <tbody>
+                                              <tr>
+                                                <td class=3D"mobile-padding=
+" width=3D"120" align=3D"center" data-color=3D"P-grey" data-max=3D"72" data=
+-size=3D"P" mc:edit=3D"XIIIV6" style=3D"padding: 35px 25px ;font-family: 'P=
+oppins', Helvetica, Arial;font-size: 16px;font-weight: normal;color: #32282=
+8;" valign=3D"top"><a class=3D"editable_img" href=3D"https://www.tesourodir=
+eto.com.br/" style=3D"display: block;border-style: none !important;border: =
+0 !important;color: #0CB4CE;text-decoration: none;" target=3D"_blank"><img =
+alt=3D"Selo Tesouro Direto" border=3D"0" editable=3D"true" height=3D"70" sr=
+c=3D"https://static.cdn.responsys.net/i9/responsysimages/easynvest/contentl=
+ibrary/imagensupload/selo_tesouro_direto.png" style=3D"display: block;-ms-i=
+nterpolation-mode: bicubic;border: 0;line-height: 100%;outline: none;text-d=
+ecoration: none;  max-height: 50px; height: 70px;"></a></td>
+                                                <td class=3D"mobile-padding=
+" width=3D"65" align=3D"center" data-color=3D"P-grey" data-max=3D"72" data-=
+size=3D"P" mc:edit=3D"XIIIV6" style=3D"padding: 24px 25px ;font-family: 'Po=
+ppins', Helvetica, Arial;font-size: 16px;font-weight: normal;color: #322828=
+;" valign=3D"top"><a class=3D"editable_img" href=3D"http://www.cvm.gov.br/"=
+ style=3D"display: block;border-style: none !important;border: 0 !important=
+;color: #0CB4CE;text-decoration: none;" target=3D"_blank"><img alt=3D"Selo =
+CVM" border=3D"0" editable=3D"true" height=3D"70" src=3D"https://static.cdn=
+.responsys.net/i9/responsysimages/easynvest/contentlibrary/imagensupload/se=
+lo_cvm.png" style=3D"display: block;-ms-interpolation-mode: bicubic;border:=
+ 0;line-height: 100%;outline: none;text-decoration: none;  max-height: 70px=
+; height: 70px;"></a></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                                              </td>
+                                                           </tr>
+                                                           <![endif]-->
+                                        <!--[if (gte mso 9)|(IE)]>
+                                                           </td>
+                                                           </tr>
+                                                        </table>
+                                                        <![endif]-->
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <!--[if (gte mso 9)|(IE)]>
+                                         </td>
+                                      </tr>
+                                   </table>
+                                   <![endif]-->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" bgcolor=3D"#ffffff" clas=
+s=3D"mobile-padding" style=3D"padding: 24px 16px;background-color: #ffffff =
+!important;" valign=3D"middle" width=3D"100%">
+                                <!--Tabela com o conte=C3=BAdo-->
+                                <table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"max-width: 550px;" width=3D"100%">
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"center" style=3D"padding=
+-top: 0px;font-size: 16px;color: #322828;" valign=3D"center">
+                                        <!--Inicio Divs Responsivas com a t=
+able do outlook-->
+                                        <!--[if (gte mso 9)|(IE)]>
+                                               <table align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"550">
+                                                  <tr>
+                                                     <td align=3D"left" val=
+ign=3D"middle" width=3D"320">
+                                                        <![endif]-->
+                                        <div style=3D"line-height: 105%; co=
+lor: #322828; max-width:60%; width:100%; display: inline-block; vertical-al=
+ign:middle;" class=3D"max-width">
+                                          <table cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0">
+                                            <tbody>
+                                              <tr>
+                                                <td align=3D"center" style=
+=3D"font-size: 16px; color: #322828; padding: 8px 10px;" valign=3D"middle">
+                                                  <a href=3D"https://www.an=
+bima.com.br/pt_br/autorregular/codigos/ofertas-publicas/ofertas-publicas.ht=
+m?_ga=3D2.256327304.2050080357.1594070256-589002571.1587663723" target=3D"_=
+_blank">
+                                                    <img alt=3D"Selo Ambima=
+ Ofertas P=C3=BAblica" border=3D"0" src=3D"https://static.cdn.responsys.net=
+/i9/responsysimages/easynvest/contentlibrary/imagensupload/anbima_ofertaspu=
+blicas.png" style=3D"display: block;-ms-interpolation-mode: bicubic;border:=
+ 0;line-height: 100%;outline: none;text-decoration: none; max-width: 100%;"=
+ width=3D"87px" height=3D"auto">
+                                                  </a>
+                                                </td>
+                                                <td align=3D"center" style=
+=3D"font-size: 16px; color: #322828; padding: 8px 10px;" valign=3D"middle">
+                                                  <a href=3D"https://www.an=
+bima.com.br/pt_br/autorregular/codigos/distribuicao-de-produtos-de-investim=
+ento.htm?_ga=3D2.256327304.2050080357.1594070256-589002571.1587663723" targ=
+et=3D"__blank">
+                                                    <img alt=3D"Selo Ambima=
+ Distribui=C3=A7=C3=A3o de Produtos de Investimento" border=3D"0" src=3D"ht=
+tps://static.cdn.responsys.net/i9/responsysimages/easynvest/contentlibrary/=
+imagensupload/selo-anbima-distribuicao-produto.png" style=3D"display: block=
+;-ms-interpolation-mode: bicubic;border: 0;line-height: 100%;outline: none;=
+text-decoration: none; max-width: 100%;" width=3D"87px" height=3D"auto">
+                                                  </a>
+                                                </td>
+                                                <td align=3D"center" style=
+=3D"font-size: 16px; color: #322828; padding: 8px 10px;" valign=3D"middle">
+                                                  <a href=3D"https://www.an=
+bima.com.br/pt_br/pagina-inicial.htm?_ga=3D2.190798760.2050080357.159407025=
+6-589002571.1587663723" target=3D"__blank">
+                                                    <img alt=3D"Selo Ambima=
+ Auto Regula=C3=A7=C3=A3o" border=3D"0" src=3D"https://static.cdn.responsys=
+.net/i9/responsysimages/easynvest/contentlibrary/imagensupload/anbima_autor=
+egulacao.png" style=3D"display: block;-ms-interpolation-mode: bicubic;borde=
+r: 0;line-height: 100%;outline: none;text-decoration: none; max-width: 100%=
+;" width=3D"87px" height=3D"auto">
+                                                  </a>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                        <!--Fim divs Responsivas-->
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+
+
+                <div style=3D"display:none; white-space:nowrap; font:15px c=
+ourier; line-height:0;">
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                </div>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     =20
+   =20
+ =20
+
+------=_Part_519066_1829330037.1678885674868
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<img src=3D"https://pixel.app.returnpath.net/pixel.gif?r=3D0edc903e764364f2=
+ac5d53bd15580f4420e6595e" width=3D"1" height=3D"1">
+<img src=3D"https://pixel.monitor1.returnpath.net/pixel.gif?r=3D0edc903e764=
+364f2ac5d53bd15580f4420e6595e" width=3D"1" height=3D"1">
+
+
+<!-- Define Charset -->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+
+<!-- Responsive Meta Tag -->
+<meta name=3D"viewport" content=3D"width=3Ddevice-width; initial-scale=3D1.=
+0; maximum-scale=3D1.0;">
+
+<title></title>
+<style type=3D"text/css">
+  body {
+    width: 100%;
+    background-color: #D7D7D7;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    mso-margin-top-alt: 0px;
+    mso-margin-bottom-alt: 0px;
+    mso-padding-alt: 0px 0px 0px 0px;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+
+  html {
+    width: 100%;
+  }
+
+  a:link,
+  span.MsoHyperlink {
+    mso-style-priority: 99;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  /* iOS BLUE LINKS */
+  a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+
+
+  /* ----------- responsivity ----------- */
+
+  @media only screen and (max-width: 640px) {
+
+    /*----- main image -------*/
+    *[class=3Dimage600] img {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    *[class=3Dfont46] {
+      font-size: 30px !important;
+      line-height: 36px !important;
+    }
+
+    *[class=3Dfont22] {
+      font-size: 15px !important;
+      line-height: 20px !important;
+    }
+
+    *[class=3Dfont14] {
+      font-size: 11px !important;
+      line-height: 15px !important;
+    }
+
+    /*-------- Container --------*/
+    *[class=3Dmin_width] {
+      min-width: 100% !important
+    }
+
+    *[class=3Dcontainer100] {
+      width: 332px !important;
+      display: block !important
+    }
+
+  }
+</style>
+
+
+
+
+<table border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgco=
+lor=3D"D7D7D7">
+
+  <tbody>
+    <tr>
+      <td align=3D"center">
+        <div>
+  <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" ><tr><td =
+style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><v:re=
+ct style=3D"width:600;" xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t=
+rue" stroke=3D"false"><v:fill origin=3D"0.5, 0" position=3D"0.5, 0" src=3D"=
+https://static.cdn.responsys.net/i9/responsysimages/easynvest/contentlibrar=
+y/imagensupload/header-purple-line.png" type=3D"tile" size=3D"1,1" aspect=
+=3D"atleast" /><v:textbox style=3D"mso-fit-shape-to-text:true" inset=3D"0,0=
+,0,0"><![endif]-->
+  <div style=3D"background:url(https://static.cdn.responsys.net/i9/responsy=
+simages/easynvest/contentlibrary/imagensupload/header-purple-line.png) cent=
+er top / cover repeat;background-position:center top;background-repeat:repe=
+at;background-size:cover;margin:0px auto;max-width:600px;">
+    <div style=3D"line-height:0;font-size:0;">
+      <table align=3D"center" background=3D"https://static.cdn.responsys.ne=
+t/i9/responsysimages/easynvest/contentlibrary/imagensupload/header-purple-l=
+ine.png" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"background:url(https://static.cdn.responsys.net/i9/responsysi=
+mages/easynvest/contentlibrary/imagensupload/header-purple-line.png) center=
+ top / cover repeat;background-position:center top;background-repeat:repeat=
+;background-size:cover;width:100%; max-width:600px;height: 90px;">
+                                        <tbody>
+                                            <tr>
+                                                <td style=3D"direction:ltr;=
+font-size:0px;padding:0;text-align:center;">
+                                                    <!--[if mso | IE]><tabl=
+e role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><t=
+r><td class=3D"" style=3D"vertical-align:top;width:600px;" ><![endif]-->
+                                                    <div class=3D"mj-column=
+-per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;direc=
+tion:ltr;display:inline-block;vertical-align:top;width:100%;">
+                                                        <table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td sty=
+le=3D"vertical-align:top;padding:0;">
+                                                                        <ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" =
+width=3D"100%">
+                                                                           =
+ <tbody>
+                                                                           =
+     <tr>
+                                                                           =
+         <td align=3D"center" style=3D"font-size:0px;padding:0;word-break:b=
+reak-word;">
+                                                                           =
+             <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px;">
+                                                                           =
+                 <tbody>
+                                                                           =
+                     <tr>
+                                                                           =
+                         <td style=3D"width:100%;"><img alt=3D"NuInvest Log=
+o" src=3D"https://s3.sa-east-1.amazonaws.com/br.com.easynvest.images/logos/=
+logo-nuinvest.png" style=3D"border:0;display:block;outline:none;text-decora=
+tion:none;font-size:13px;" width=3D"170" height=3D"31px"></td>
+                                                                           =
+                     </tr>
+                                                                           =
+                 </tbody>
+                                                                           =
+             </table>
+                                                                           =
+         </td>
+                                                                           =
+     </tr>
+                                                                           =
+ </tbody>
+                                                                        </t=
+able>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <!--[if mso | IE]></td>=
+</tr></table><![endif]-->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+    </div>
+  </div>
+</div>
+               =20
+             =20
+              <!--[if mso | IE]></v:textbox></v:rect></td></tr></table><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" style=3D"width:600px;" width=3D"600" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+              <div style=3D"background: #FFFFFF;background-color: #FFFFFF;m=
+argin:0px auto;max-width:600px;">
+                <table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"background:transparent;backgro=
+und-color:transparent;width:100%;">
+                  <tbody>
+                    <tr>
+                      <td style=3D"direction:ltr;font-size:0px;padding:0;te=
+xt-align:center;">
+                        <!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"ve=
+rtical-align:top;width:600px;" ><![endif]-->
+                        <div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:top;width:100%;">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%">
+                            <tbody>
+                              <tr>
+                                <td style=3D"vertical-align:top;padding:0 2=
+0px;">
+                                  <table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" width=3D"100%">
+                                    <tbody>
+                                      <tr>
+                                        <td align=3D"center" style=3D"font-=
+size:0px;padding:26px 0;word-break:break-word;">
+                                          <div style=3D"font-family:Arial, =
+sans-serif;font-size:32px;font-weight:bold;line-height:38px;text-align:cent=
+er;color:#555555;">
+                                            <span style=3D"color:#555555">R=
+etirada</span>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!--[if mso | IE]></td></tr></table><![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]></td></tr></table><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" style=3D"width:6=
+00px;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-li=
+ne-height-rule:exactly;"><v:rect style=3D"width:600px;" xmlns:v=3D"urn:sche=
+mas-microsoft-com:vml" fill=3D"true" stroke=3D"false"><v:fill origin=3D"0.5=
+, 0" position=3D"0.5, 0" src=3D"https://static.cdn.responsys.net/i9/respons=
+ysimages/easynvest/contentlibrary/imagensupload/header-purple-line.png" typ=
+e=3D"tile" size=3D"1,1" aspect=3D"atleast" /><v:textbox style=3D"mso-fit-sh=
+ape-to-text:true" inset=3D"0,0,0,0"><![endif]-->
+              <div style=3D"background:url(https://static.cdn.responsys.net=
+/i9/responsysimages/easynvest/contentlibrary/imagensupload/header-purple-li=
+ne.png) center top / cover repeat;background-position:center top;background=
+-repeat:repeat;background-size:cover;margin:0px auto;max-width:600px;">
+                <div style=3D"line-height:0;font-size:0;">
+                  <table align=3D"center" background=3D"https://static.cdn.=
+responsys.net/i9/responsysimages/easynvest/contentlibrary/imagensupload/hea=
+der-purple-line.png" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:url(https://static.cdn.responsys.net/=
+i9/responsysimages/easynvest/contentlibrary/imagensupload/header-purple-lin=
+e.png) center top / cover repeat;background-position:center top;background-=
+repeat:repeat;background-size:cover;width:100%;">
+                    <tbody>
+                      <tr>
+                        <td style=3D"direction:ltr;font-size:0px;padding:0;=
+text-align:center;">
+                          <!--[if mso | IE]><table role=3D"presentation" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"=
+vertical-align:top;width:600px;" ><![endif]-->
+                          <div class=3D"mj-column-per-100 mj-outlook-group-=
+fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bl=
+ock;vertical-align:top;width:100%;">
+                            <table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" width=3D"100%">
+                              <tbody>
+                                <tr>
+                                  <td style=3D"vertical-align:top;padding:2=
+px 0;">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" width=3D"100%">
+                                      <tbody></tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <!--[if mso | IE]></td></tr></table><![endif]-->
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--[if mso | IE]></v:textbox></v:rect></td></tr></table><![e=
+ndif]-->
+           =20
+
+            </td></tr><tr>
+              <td align=3D"center">
+                <table class=3D"container600" align=3D"center" border=3D"0"=
+ width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFFFF" styl=
+e=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                  <tbody>
+                    <tr>
+                      <td align=3D"center" style=3D"padding:0 10px">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-=
+collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+
+
+                          <tbody>
+                            <tr>
+                              <td align=3D"left" style=3D"font-family:Arial=
+, Tahoma; Font-size:16px; line-height:22px; font-weight:normal; font-style:=
+normal; color:#251E1E; padding:30px 0 32px 0">
+                                <span style=3D"color:#4C0677; font-weight:b=
+old; Font-size:22px">Recebemos sua solicita=C3=A7=C3=A3o
+                                  de Retirada no valor de R$ 3,40.</span>
+                                <br> <br>
+
+                                Ol=C3=A1, Juan Meneghesso Vildoso
+                                <br> <br>
+                                Aguarde at=C3=A9 que o nosso Financeiro efe=
+tive sua solicita=C3=A7=C3=A3o. <br> <br>
+
+                                Dados da retirada solicitada: <br>
+                                Conta Origem: 3953929 <br>
+                                Banco Destino: 260 <br>
+                                Ag=C3=AAncia: 0001 <br>
+                                Conta Destino: 47203808 <br>
+                                Valor: R$ 3,40 <br> <br>
+                                Lembre-se: <br>
+
+                                As retiradas solicitadas at=C3=A9 as 15h30,=
+ nos dias =C3=BAteis, ser=C3=A3o processadas no mesmo dia.
+                                <br>
+                                As retiradas solicitadas ap=C3=B3s as 15h30=
+, ser=C3=A3o processadas no pr=C3=B3ximo dia =C3=BAtil. <br> <br>
+                                Aten=C3=A7=C3=A3o: <br>
+
+                                O processamento das retiradas s=C3=B3 ocorr=
+e nos dias =C3=BAteis em hor=C3=A1rio comercial, conforme
+                                funcionamento banc=C3=A1rio.
+                                <br> <br>
+                                Os recursos enviados na NuInvest n=C3=A3o p=
+odem ser resgatados no mesmo dia do envio.
+
+
+
+
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+
+                    </tr>
+
+
+                    <tr>
+                      <td align=3D"center">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:0 10px"=
+>
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+
+
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"center" style=3D"padding=
+:0px 0 0 0">
+                                        <table align=3D"center" border=3D"0=
+" width=3D"" bgcolor=3D"#3CCBDA" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; b=
+order-radius:8px">
+                                        </table>
+                                      </td>
+                                    </tr>
+
+                                    <tr>
+                                      <td align=3D"left" style=3D"font-fami=
+ly:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:normal; fon=
+t-style:normal; color:#251E1E; padding:10px 0 20px 0">
+                                        Bons investimentos <br>
+                                        <b>Equipe NuInvest</b>
+
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+
+                    <tr bgcolor=3D"#FFFFFF">
+                      <td align=3D"center" style=3D"padding:0 10px">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:20px 0 =
+40px 0; border-top:1px solid #EDEDE3; border-bottom:1px solid #EDEDE3">
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                  <tbody>
+                                    <tr>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"150">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"left" style=3D"f=
+ont-family:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:nor=
+mal; font-style:normal; color:#251E1E; padding:16px 0 0 0">
+                                                Siga a NuInvest
+                                                nas redes sociais
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"28"></td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"332">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"center" style=3D=
+"padding:20px 0 0 0">
+                                                <table class=3D"container60=
+0" align=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table=
+-rspace:0pt">
+                                                  <tbody>
+                                                    <tr>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+www.facebook.com/easynvest"><img src=3D"https://s3.sa-east-1.amazonaws.com/=
+br.com.easynvest.images/logos/facebook-icon-purple.png" style=3D"display:bl=
+ock" width=3D"50" height=3D"50" border=3D"0" alt=3D"facebook"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"http://y=
+outube.com/easynvest"><img src=3D"https://s3.sa-east-1.amazonaws.com/br.com=
+.easynvest.images/logos/youtube-icon-purple.png" style=3D"display:block" wi=
+dth=3D"50" height=3D"50" border=3D"0" alt=3D"youtube"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+www.instagram.com/easynvest/"><img src=3D"https://s3.sa-east-1.amazonaws.co=
+m/br.com.easynvest.images/logos/instagram-icon-purple.png" style=3D"display=
+:block" width=3D"50" height=3D"50" border=3D"0" alt=3D"instagram"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+twitter.com/easynvest"><img src=3D"https://s3.sa-east-1.amazonaws.com/br.co=
+m.easynvest.images/logos/twitter-icon-purple.png" style=3D"display:block" w=
+idth=3D"50" height=3D"50" border=3D"0" alt=3D"twitter"></a>
+                                                      </td>
+                                                      <td width=3D"10"></td=
+>
+                                                      <td align=3D"center">
+                                                        <a href=3D"https://=
+www.linkedin.com/company/easynvest---t-tulo-corretora-de-valores-sa/"><img =
+src=3D"https://s3.sa-east-1.amazonaws.com/br.com.easynvest.images/logos/lin=
+kedin-icon-purple.png" style=3D"display:block" width=3D"50" height=3D"50" b=
+order=3D"0" alt=3D"linkedin"></a>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <td align=3D"center">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:20px 10=
+px 35px 10px;">
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                  <tbody>
+                                    <tr>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"230">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"left" style=3D"f=
+ont-family:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:nor=
+mal; font-style:normal; color:#251E1E; padding:20px 0 0 0">
+                                                <span style=3D"font-weight:=
+bold; color:#4C0677">Precisa de
+                                                  ajuda?</span><br>
+                                                <a href=3D"mailto:nuinvest@=
+nuinvest.com.br" style=3D"text-decoration:none; color:#251E1E">nuinvest@nui=
+nvest.com.br</a><br>
+                                                ou por telefone <a href=3D"=
+tel:11 3841-4515" style=3D"text-decoration:none; color:#251E1E">11 3841-451=
+5</a>,<br>
+                                                em dias =C3=BAteis das 9h =
+=C3=A0s 18h
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"45"></td>
+                                      <td class=3D"container100" align=3D"l=
+eft" valign=3D"top" width=3D"235">
+                                        <table class=3D"container600" align=
+=3D"center" border=3D"0" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:=
+0pt">
+                                          <tbody>
+                                            <tr>
+                                              <td align=3D"left" style=3D"f=
+ont-family:Arial, Tahoma; Font-size:16px; line-height:22px; font-weight:nor=
+mal; font-style:normal; color:#251E1E; padding:20px 0 0 0">
+                                                <span style=3D"font-weight:=
+bold; color:#4C0677">Ouvidoria</span><br>
+                                                <a href=3D"mailto:ouvidoria=
+@nuinvest.com.br" style=3D"text-decoration:none; color:#251E1E">ouvidoria@n=
+uinvest.com.br</a><br>
+                                                ou por telefone <a href=3D"=
+tel:0800 727 7784" style=3D"text-decoration:none; color:#251E1E">0800 727 7=
+784</a>,<br>
+                                                em dias =C3=BAteis das 9h =
+=C3=A0s 18h
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+                    <tr>
+                      <td align=3D"center">
+                        <table class=3D"container600" align=3D"center" bord=
+er=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#FFFF=
+FF" style=3D"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspa=
+ce:0pt">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" style=3D"padding:0 10px =
+0 10px;">
+                                <table class=3D"container600" align=3D"cent=
+er" border=3D"0" width=3D"510" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt">
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"left" style=3D"font-fami=
+ly:Arial, Tahoma; Font-size:10px; line-height:15px; font-weight:normal; fon=
+t-style:normal; color:#251E1E; padding:0 0 40px 0; text-align:justify">
+                                        A Easynvest - T=C3=ADtulo Corretora=
+ de Valores SA, inscrita no CNPJ/ME sob n=C2=BA 62.169.875/0001-79 ("NuInve=
+st"), institui=C3=A7=C3=A3o financeira autorizada a funcionar pelo Banco Ce=
+ntral do Brasil, informa que os recursos de clientes s=C3=A3o mantidos em s=
+uas contas de registro que s=C3=A3o utilizadas exclusivamente pela NuInvest=
+ para registro das opera=C3=A7=C3=B5es de cada cliente, como previsto no ar=
+tigo 14-A do Regulamento Anexo =C3=A0 Resolu=C3=A7=C3=A3o CMN n=C2=BA 1.655=
+. As contas de registro n=C3=A3o se confundem com as contas de pagamento, q=
+ue est=C3=A3o definidas pelos artigos 6=C2=BA, inciso IV, e 12 da Lei n=C2=
+=BA 12.865/2013, e os recursos mantidos nas contas de registro n=C3=A3o pos=
+suem regime jur=C3=ADdico equivalente ao dos recursos mantidos em contas de=
+ pagamento, nos termos previstos no artigo 12 da Lei n=C2=BA 12.865/2013. <=
+br><br>
+Toda transmiss=C3=A3o de ordem por meio digital est=C3=A1 sujeita a interru=
+p=C3=A7=C3=B5es ou atrasos, podendo impedir ou prejudicar o envio de ordens=
+ ou a recep=C3=A7=C3=A3o de informa=C3=A7=C3=B5es atualizadas. <br><br>
+Confira demais informa=C3=A7=C3=B5es no site da Comiss=C3=A3o de Valores Mo=
+bili=C3=A1rios (CVM) clicando <a href=3D"https://www.gov.br/cvm/pt-br" targ=
+et=3D"_blank">aqui</a>.=20
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td align=3D"center">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" data-module=3D"module18" data-thumb=3D"thumbnails/thumb15.jpg" mc:re=
+peatable=3D"FOOTER" mc:variant=3D"MODULE" width=3D"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" bgcolor=3D"#ffffff" clas=
+s=3D"mobile-padding" data-bgcolor=3D"Light bgcolor" valign=3D"top" width=3D=
+"100%">
+                                <!--[if (gte mso 9)|(IE)]>
+                                   <table width=3D"550" align=3D"center" ce=
+llpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                                      <tr>
+                                         <td>
+                                            <![endif]-->
+                                <table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"footer">
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"center" style=3D"font-si=
+ze: 0;padding-bottom: 0;" valign=3D"top">
+                                        <!--[if (gte mso 9)|(IE)]>
+                                                        <table align=3D"cen=
+ter" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"550">
+                                                           <tr>
+                                                              <td align=3D"=
+center" valign=3D"top" width=3D"275">
+                                                                 <![endif]-=
+->
+                                        <div class=3D"mobile-wrapper" style=
+=3D"display:inline-block;max-width:100%;vertical-align:top;">
+                                          <table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"max-width" width=3D"100%">
+                                            <tbody>
+                                              <tr>
+                                                <td class=3D"mobile-padding=
+" width=3D"120" align=3D"center" data-color=3D"P-grey" data-max=3D"72" data=
+-size=3D"P" mc:edit=3D"XIIIV6" style=3D"padding: 35px 25px ;font-family: 'P=
+oppins', Helvetica, Arial;font-size: 16px;font-weight: normal;color: #32282=
+8;" valign=3D"top"><a class=3D"editable_img" href=3D"https://www.tesourodir=
+eto.com.br/" style=3D"display: block;border-style: none !important;border: =
+0 !important;color: #0CB4CE;text-decoration: none;" target=3D"_blank"><img =
+alt=3D"Selo Tesouro Direto" border=3D"0" editable=3D"true" height=3D"70" sr=
+c=3D"https://static.cdn.responsys.net/i9/responsysimages/easynvest/contentl=
+ibrary/imagensupload/selo_tesouro_direto.png" style=3D"display: block;-ms-i=
+nterpolation-mode: bicubic;border: 0;line-height: 100%;outline: none;text-d=
+ecoration: none;  max-height: 50px; height: 70px;"></a></td>
+                                                <td class=3D"mobile-padding=
+" width=3D"65" align=3D"center" data-color=3D"P-grey" data-max=3D"72" data-=
+size=3D"P" mc:edit=3D"XIIIV6" style=3D"padding: 24px 25px ;font-family: 'Po=
+ppins', Helvetica, Arial;font-size: 16px;font-weight: normal;color: #322828=
+;" valign=3D"top"><a class=3D"editable_img" href=3D"http://www.cvm.gov.br/"=
+ style=3D"display: block;border-style: none !important;border: 0 !important=
+;color: #0CB4CE;text-decoration: none;" target=3D"_blank"><img alt=3D"Selo =
+CVM" border=3D"0" editable=3D"true" height=3D"70" src=3D"https://static.cdn=
+.responsys.net/i9/responsysimages/easynvest/contentlibrary/imagensupload/se=
+lo_cvm.png" style=3D"display: block;-ms-interpolation-mode: bicubic;border:=
+ 0;line-height: 100%;outline: none;text-decoration: none;  max-height: 70px=
+; height: 70px;"></a></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                                              </td>
+                                                           </tr>
+                                                           <![endif]-->
+                                        <!--[if (gte mso 9)|(IE)]>
+                                                           </td>
+                                                           </tr>
+                                                        </table>
+                                                        <![endif]-->
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <!--[if (gte mso 9)|(IE)]>
+                                         </td>
+                                      </tr>
+                                   </table>
+                                   <![endif]-->
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" bgcolor=3D"#ffffff" clas=
+s=3D"mobile-padding" style=3D"padding: 24px 16px;background-color: #ffffff =
+!important;" valign=3D"middle" width=3D"100%">
+                                <!--Tabela com o conte=C3=BAdo-->
+                                <table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" style=3D"max-width: 550px;" width=3D"100%">
+                                  <tbody>
+                                    <tr>
+                                      <td align=3D"center" style=3D"padding=
+-top: 0px;font-size: 16px;color: #322828;" valign=3D"center">
+                                        <!--Inicio Divs Responsivas com a t=
+able do outlook-->
+                                        <!--[if (gte mso 9)|(IE)]>
+                                               <table align=3D"center" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"550">
+                                                  <tr>
+                                                     <td align=3D"left" val=
+ign=3D"middle" width=3D"320">
+                                                        <![endif]-->
+                                        <div style=3D"line-height: 105%; co=
+lor: #322828; max-width:60%; width:100%; display: inline-block; vertical-al=
+ign:middle;" class=3D"max-width">
+                                          <table cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0">
+                                            <tbody>
+                                              <tr>
+                                                <td align=3D"center" style=
+=3D"font-size: 16px; color: #322828; padding: 8px 10px;" valign=3D"middle">
+                                                  <a href=3D"https://www.an=
+bima.com.br/pt_br/autorregular/codigos/ofertas-publicas/ofertas-publicas.ht=
+m?_ga=3D2.256327304.2050080357.1594070256-589002571.1587663723" target=3D"_=
+_blank">
+                                                    <img alt=3D"Selo Ambima=
+ Ofertas P=C3=BAblica" border=3D"0" src=3D"https://static.cdn.responsys.net=
+/i9/responsysimages/easynvest/contentlibrary/imagensupload/anbima_ofertaspu=
+blicas.png" style=3D"display: block;-ms-interpolation-mode: bicubic;border:=
+ 0;line-height: 100%;outline: none;text-decoration: none; max-width: 100%;"=
+ width=3D"87px" height=3D"auto">
+                                                  </a>
+                                                </td>
+                                                <td align=3D"center" style=
+=3D"font-size: 16px; color: #322828; padding: 8px 10px;" valign=3D"middle">
+                                                  <a href=3D"https://www.an=
+bima.com.br/pt_br/autorregular/codigos/distribuicao-de-produtos-de-investim=
+ento.htm?_ga=3D2.256327304.2050080357.1594070256-589002571.1587663723" targ=
+et=3D"__blank">
+                                                    <img alt=3D"Selo Ambima=
+ Distribui=C3=A7=C3=A3o de Produtos de Investimento" border=3D"0" src=3D"ht=
+tps://static.cdn.responsys.net/i9/responsysimages/easynvest/contentlibrary/=
+imagensupload/selo-anbima-distribuicao-produto.png" style=3D"display: block=
+;-ms-interpolation-mode: bicubic;border: 0;line-height: 100%;outline: none;=
+text-decoration: none; max-width: 100%;" width=3D"87px" height=3D"auto">
+                                                  </a>
+                                                </td>
+                                                <td align=3D"center" style=
+=3D"font-size: 16px; color: #322828; padding: 8px 10px;" valign=3D"middle">
+                                                  <a href=3D"https://www.an=
+bima.com.br/pt_br/pagina-inicial.htm?_ga=3D2.190798760.2050080357.159407025=
+6-589002571.1587663723" target=3D"__blank">
+                                                    <img alt=3D"Selo Ambima=
+ Auto Regula=C3=A7=C3=A3o" border=3D"0" src=3D"https://static.cdn.responsys=
+.net/i9/responsysimages/easynvest/contentlibrary/imagensupload/anbima_autor=
+egulacao.png" style=3D"display: block;-ms-interpolation-mode: bicubic;borde=
+r: 0;line-height: 100%;outline: none;text-decoration: none; max-width: 100%=
+;" width=3D"87px" height=3D"auto">
+                                                  </a>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                        <!--Fim divs Responsivas-->
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+
+
+                <div style=3D"display:none; white-space:nowrap; font:15px c=
+ourier; line-height:0;">
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                </div>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+     =20
+   =20
+ =20
+
+------=_Part_519066_1829330037.1678885674868--

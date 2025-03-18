@@ -1,0 +1,1278 @@
+Delivered-To: jmenega3@gmail.com
+Received: by 2002:a05:7022:2181:b0:5f:d896:477a with SMTP id bh1csp3300944dlb;
+        Wed, 15 Mar 2023 05:58:37 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+Y7h5SavNbU9ISTwnuLJ3kSD7XXzzVE1jEGEITt8lThIeFfmdMqnNK4CB+4fWsOlaHWzP+
+X-Received: by 2002:a05:600c:3b99:b0:3ed:2352:eebd with SMTP id n25-20020a05600c3b9900b003ed2352eebdmr10248557wms.11.1678885117597;
+        Wed, 15 Mar 2023 05:58:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1678885117; cv=none;
+        d=google.com; s=arc-20160816;
+        b=EPk1YCvhkgERECZejlaZ8KukBz+NCiZPWb5rDMsvM4oG1dHZy7hNUP6T15eXcNUUHS
+         8epQj6X6+CgzKix8GyICh4byh8e3Bi+PHBQUglYcJQZblSQ3fBwomrUvUlfscl7H9qKk
+         UXK0RH5sS2HUl3l2MtHi0U4VrMO1mPEnfYTV3MfhMBjq1oMrBd/7dKlETn8dReihB39/
+         z3dI5OCpuS8lHoZaF61LqBh8c32rhIR2NcJHc8dB32c9ILnFQxWiCs6Wf3sSQ9dpszq3
+         /WQsdR6GSBSP2TpXF02Bgs1l0c+rlZv5h9nzuQreK1AzyOJwdRWb4hKYHpkhUdyEPFEL
+         Gmng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-unsubscribe-post:mime-version:subject
+         :references:message-id:to:from:date:dkim-signature;
+        bh=9fWvXQmHGYy//h6gEEjL4U75bsn+OkAHXTbgR9cpxc8=;
+        b=QQuzktveTy8rN6OfFeqFbuOTDGiCOTaDWhiy8lSKeoBWUZYeSBFflRPC8MlgvOQCXn
+         3DQ/yJhYejUYNQ9Ip5mmjWHSzgbM2hWZ1mLpNyCSLhHtxJ5sOQLR9Xztsb0fkRq5ya1A
+         6vHig2orRQwy4ObbSDxvcndz6yktVtckgeqR2EwDao2HtvhUYQ98zmhsKrb+1QozvvBQ
+         xveGLEWqYx9REWOArk+pQyceK3d5a+4NxSEKMaMseIW8kf70EkDzUquDAMCfKmSondiT
+         MIEBBaAoojkqIZIVHZdFRDJRJ0OECYWLA3tuRrJp0GqPbru8g6dPnrCHi4yTyNx7QEL5
+         BM1w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@iti.itau header.s=smtp3 header.b=FYDUbxm3;
+       spf=pass (google.com: domain of tudosobre@iti.itau designates 62.140.31.55 as permitted sender) smtp.mailfrom=tudosobre@iti.itau;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=iti.itau
+Return-Path: <tudosobre@iti.itau>
+Received: from abck-fr4.mta.cloud (abck-fr4.mta.cloud. [62.140.31.55])
+        by mx.google.com with ESMTPS id i8-20020a1c5408000000b003ebfac03b32si1461208wmb.42.2023.03.15.05.58.37
+        for <jmenega3@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Mar 2023 05:58:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tudosobre@iti.itau designates 62.140.31.55 as permitted sender) client-ip=62.140.31.55;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@iti.itau header.s=smtp3 header.b=FYDUbxm3;
+       spf=pass (google.com: domain of tudosobre@iti.itau designates 62.140.31.55 as permitted sender) smtp.mailfrom=tudosobre@iti.itau;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=iti.itau
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1678885117;
+	s=smtp3; d=iti.itau;
+	h=List-Unsubscribe:List-Unsubscribe-Post:Content-Type:MIME-Version:Subject:References:Message-Id:To:From:Date;
+	bh=9fWvXQmHGYy//h6gEEjL4U75bsn+OkAHXTbgR9cpxc8=;
+	b=FYDUbxm3XCIKul3MYKaLpobwZzzVoH3vHJiRM6wYIveC2wcIM7QyUOPx1POGSW8y
+	+W9DcUL3TRAfLgGxjvGEjNdeH+oKnf5PruMK1bXPomwgW5/VqnAKiA3C/Oe5c7fCg//
+	wuAQUZA6LXwEUVqwG84izcg+ziAMy+OXxkRJDlBk=
+Date: Wed, 15 Mar 2023 12:58:37 +0000 (GMT)
+From: iti <tudosobre@iti.itau>
+To: <jmenega3@gmail.com>
+Message-Id: <20230315125837.1.9c2034138489f0e0@iti.itau>
+References: 
+Subject: =?UTF-8?Q?=C3=A9_hoje!_Fa=C3=A7a_a_sua_declara=C3=A7=C3=A3o_do_IR_2023?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_Part_1379584_1403072781.1678885117267"
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-IB-WebHookData: A8A85B6E73C85AF2AAAC08DD0CC22C35609505DA127F35894F5679C53F84CAFC3429E6C1434462CA11DBABBC764453D133DBBD23DF80CF94690A5B3313884BFCD588D812A0DB24A3C521162B3FC26150577265F6F6CF2B9483ADF3541020DE08F591DD904A62AC313549FE85B035339527722A3695B7FF3E008E938D06F585FCA82D1643F4BF94712A27E40C924DED82B48A2FD8F37333E699FA77DB6EB80CA441C16A31A3D243AA4C86DAEBF8C686CC1476F1A6F9C4B7B4180B95F9406AD3008D439B5D7279F6B0D18F70E8A4D538A453AD73277F7001463A7D40022A1D0E43B2E6172B48E88807E8F422C6DFBFBC4E72FF457386BA3D5B065C1FB50914F294AD4788586D48DFAD7FF678CA5C2C2FFC9F29469351AC0278EC62BB7E098E5397F12172B44B200CBEA4E564D11F4F636194B4C367F52CB3D35E30D16AB18AD569179D2018AB2ECE9B5DD2B99F094811BDF4AF081BE2A576B8F05A7B8EA5ACF1AFECC6BDC16289D3BFA15509159089772F87A4CEBF911AC3C7BF950397E21E979475AA28D62558259C18A85CEF2125ADCD7C72F349583460F3CFBC53A57CA672D776A801B1FC98C901DB03252DEAA1D9D019D0C8D31300075D8597FCE7511594B0CA343FEC3376B9711ACC60D5A466275CBB8B431BD1B0C32FAD9C032ACEF7174D21222A437C82A49680F0F698348D3E279D34DC2AAAA3F8D2EAE76A5109A62FCCC0B82E82071983ADA281D68D7F02B28BF26530B4B271BBC7D021F0F336DAC8A8
+List-Unsubscribe: <https://iti.email-messaging.com/tracking/1/unsubscribeUser/AjEbTtfv>, <mailto:unsubscribe@iti.itau?subject=unsubscribe>
+X-IB-Sending-Ip: 62.140.31.55
+
+------=_Part_1379584_1403072781.1678885117267
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Vem, que o iti te ajuda
+
+Imposto de renda 2023: t=C3=A1 valendo!=C2=A0#vemcomiti
+
+oi, !
+Hoje come=C3=A7a a temporada de declara=C3=A7=C3=A3o do Imposto de Renda 20=
+23. Mas n=C3=A3o se preocupe, a gente facilita tudo pra voc=C3=AA com o gui=
+a iti - IR 2023. Acesse j=C3=A1!
+
+ver guia ( https://www.itau.com.br/media/dam/m/6417f01067780271/original/EN=
+-0038668_PDF_IR_v2.pdf )
+
+tem restitui=C3=A7=C3=A3o pra receber?
+
+Voc=C3=AA pode colocar o iti como banco recebedor da sua restitui=C3=A7=C3=
+=A3o para deixar seu dinheiro rendendo a 100% do CDI, desde o primeiro dia =
+=C3=BAtil do recebimento. Voc=C3=AA escolhe transferir o valor via conta ba=
+nc=C3=A1ria ou Pix.
+
+iti. v=C3=A1 com tudo!
+
+=C2=A0
+=C2=A0
+=C2=A0
+
+curtiu este conte=C3=BAdo?
+
+Responda e nos ajude a construir um iti
+
+cada vez melhor para voc=C3=AA.
+
+gostei
+( https://iti.itau/nps-comentarios/?like=3Dtrue&utm_source=3Dencantar&utm_m=
+edium=3Demail&utm_campaign=3Dirmaiorinicio&utm_term=3Dlike )
+
+gostei
+
+n=C3=A3o gostei
+( https://iti.itau/nps-comentarios/?like=3Dfalse&utm_source=3Dencantar&utm_=
+medium=3Demail&utm_campaign=3Dirmaiorinicio&utm_term=3Ddislike )
+
+n=C3=A3o gostei
+
+=C2=A0
+=C2=A0
+=C2=A0
+
+=C2=A0
+
+Siga @fazumiti nas redes sociais
+
+clique para acessar: @fazumiti no Twitter
+( https://twitter.com/fazumiti )
+=C2=A0
+clique para acessar: @fazumiti no Facebook
+( https://www.facebook.com/fazumiti/ )
+=C2=A0
+clique para acessar: @fazumiti no Instagram
+( http://instagram.com/fazumiti/ )
+=C2=A0
+clique para acessar: @fazumiti no Youtube
+( https://www.youtube.com/fazumiti?gl=3DBR )
+=C2=A0
+clique para acessar: @fazumiti no Tik Tok
+( https://www.tiktok.com/@fazumiti )
+
+Precisa falar com a gente? Estamos em v=C3=A1rios canais pra te ajudar, tod=
+os os dias, 24h por dia
+
+iti.itau ( https://iti.itau/?utm_source=3Demail&utm_medium=3Dmkt&utm_campai=
+gn=3Dreguas )
+
+app no celular ( https://p98p.adj.st/?adj_t=3D9uavpxj_9uavpxj&adj_deeplink=
+=3Diti://homelg&adj_campaign=3Demailmkt&adj_adgroup=3Dreguas )
+
+telefone
+
+Nos canais digitais
+
+Chat: acesse o seu perfil no app, selecione ajuda > ajuda no chat, ou tire =
+suas d=C3=BAvidas pelo site iti.itau/ajuda ou no app, em acessar perfil > a=
+juda
+
+Pelo telefone
+
+Consultas, informa=C3=A7=C3=B5es, reclama=C3=A7=C3=B5es e transa=C3=A7=C3=
+=B5es
+Capitais e regi=C3=B5es metropolitanas: 3003 6484
+Outras regi=C3=B5es: 0800 200 0484
+Todos os dias, 24h por dia
+
+Para reclama=C3=A7=C3=B5es, cancelamentos e informa=C3=A7=C3=B5esgerais, li=
+gue para o SAC
+
+SAC iti: 0800 720 3670
+SAC iti deficiente auditivo/fala: 0800 722 1722
+Todos os dias, 24h por dia
+
+N=C3=A3o encontrou a solu=C3=A7=C3=A3o que precisava?Fale com a Ouvidoria
+
+Ouvidoria: 0800 720 3690
+De segunda a sexta, das 9h =C3=A0s 18h
+
+Quer que a gente te risque da nossa agendae n=C3=A3o te mande mais e-mails?=
+ clique aqui (
+https://iti.email-messaging.com/tracking/1/unsubscribe/AjEbTtfv )
+------=_Part_1379584_1403072781.1678885117267
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<span class=3D"preheader" style=3D"display: none !important; visibility: hi=
+dden !important; opacity: 0 !important; color: transparent !important; heig=
+ht: 0; mso-hide: all !important; width: 0;"><p>Vem, que o iti te ajuda</p><=
+/span><br><!DOCTYPE html>
+<html lang=3D"pt-br" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce">
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno,address=3Dno,=
+email=3Dno,date=3Dno,url=3Dno">
+    <meta name=3D"color-scheme" content=3D"light">
+    <meta name=3D"supported-color-schemes" content=3D"light">
+   =20
+   =20
+   =20
+    <!--[if mso]>
+<style type=3D"=E2=80=9Dtext/css=E2=80=9D">
+.fallback-font {
+font-family: Arial, sans-serif;
+}
+</style>
+<style type=3D"text/css">
+body, table, td, a, h1, p {font-family: Arial, sans-serif !important;}
+
+<![endif]-->
+    <style>
+      :root {
+        color-scheme: light;
+        supported-color-schemes: light;
+      }
+      #MessageViewBody,
+      #MessageWebViewDiv {
+        width: 100% !important;
+      }
+      html,
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important
+      }
+      * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%
+      }
+      div[style*=3D"margin: 16px 0"] {
+        margin: 0 !important
+      }
+      table,
+      td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important
+      }
+      th {
+        font-weight: normal
+      }
+      table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important
+      }
+      a {
+        text-decoration: none
+      }
+      img {
+        -ms-interpolation-mode: bicubic
+      }
+      a[x-apple-data-detectors],
+      .unstyle-auto-detected-links a,
+      .aBn {
+        border-bottom: 0 !important;
+        cursor: default !important;
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important
+      }
+      .im {
+        color: inherit !important
+      }
+      .a6S {
+        display: none !important;
+        opacity: 0.01 !important
+      }
+      img.g-img+div {
+        display: none !important
+      }
+      #outlook a {
+        padding: 0
+      }
+      .ReadMsgBody {
+        width: 100%
+      }
+      .ExternalClass {
+        width: 100%
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%
+      }
+      @media only screen and (min-device-width: 320px) and (max-device-widt=
+h: 374px) {
+        u~div .email-container {
+          min-width: 320px !important
+        }
+      }
+      @media only screen and (min-device-width: 375px) and (max-device-widt=
+h: 413px) {
+        u~div .email-container {
+          min-width: 375px !important
+        }
+      }
+      @media only screen and (min-device-width: 414px) {
+        u~div .email-container {
+          min-width: 414px !important
+        }
+      }
+   =20
+    <style>
+      .button-td,
+      .button-a {
+        transition: all 100ms ease-in
+      }
+      @media screen and (max-width: 480px) {
+        .email-container {
+          width: 100% !important;
+          margin: auto !important
+        }
+        .stack-column,
+        .stack-column-center {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          direction: ltr !important
+        }
+        .stack-column-center {
+          text-align: center !important
+        }
+        .center-on-narrow {
+          text-align: center !important;
+          display: block !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          float: none !important
+        }
+        table.center-on-narrow {
+          display: inline-block !important
+        }
+        /*Adapta=C3=A7=C3=B5es e classes para mobile menor*/
+        .top-30 {
+          padding-top: 30px !important;
+        }
+        .pd-20 {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+        .left-20 {
+          padding-left: 20px !important;
+        }
+        .right-20 {
+          padding-right: 20px !important;
+        }
+        .top-20 {
+          padding-top: 20px !important;
+        }
+        .top-15 {
+          padding-top: 15px !important;
+        }
+        .left-18 {
+          padding-left: 18px !important;
+        }
+        .right-18 {
+          padding-right: 18px !important;
+        }
+        .left-9 {
+          padding-left: 9px !important;
+        }
+        .right-9 {
+          padding-right: 9px !important;
+        }
+        .bottom-15 {
+          padding-bottom: 15px !important;
+        }
+        .bottom-20 {
+          padding-bottom: 20px !important;
+        }
+        .height-24 {
+          height: 24px !important;
+        }
+        .f-30 {
+          font-size: 30px !important;
+          line-height: 34px !important;
+        }
+        .f-24 {
+          font-size: 24px !important;
+          line-height: 28px !important;
+        }
+        .f-22{
+          font-size: 22px !important;
+          line-height: 26px !important;
+        }
+        .f-20 {
+          font-size: 20px !important;
+          line-height: 26px !important;
+        }
+        .f-18 {
+          font-size: 18px !important;
+          line-height: 24px !important;
+        }
+        .f-16 {
+          font-size: 16px !important;
+          line-height: 20px !important;
+        }
+        .f-14 {
+          font-size: 14px !important;
+          line-height: 18px !important
+        }
+        .hideThis {
+          display: none !important
+        }
+        .btn-mobile {
+          padding: 14px 20px !important;
+          font-size: 14px !important;
+          line-height: 14px !important;
+        }
+        .height-auto {
+          height: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body width=3D"100%" style=3D"margin:0;padding:0 !important;mso-line-heig=
+ht-rule:exactly;background-color:#ffffff"><html><head></head><body><center =
+style=3D"width:100%;background-color:#ffffff"><!-- [if mso | IE]><table rol=
+e=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"480" style=3D"background-color:#ffffff"><tr><td> <![endif]-->
+<table bgcolor=3D"#FFFFFF;" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"480" border=3D"0" role=3D"presentation" style=3D"margin:aut=
+o;background-color:#ffffff" class=3D"email-container">
+<tbody>
+<tr>
+<td><!-- Web View -->
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:20px 32px 20px 32px" class=3D"spacing-20 top-14 bottom=
+-14">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" ro=
+le=3D"presentation" style=3D"margin:0">
+<tbody>
+<tr>
+<td style=3D"border-radius:50px;background:#F5F5F5;padding:8px 18px;font-fa=
+mily:sans-serif;font-size:10px;line-height:10px;text-align:center"><a style=
+=3D"border:0px;text-decoration:none;color:#676767;display:block;text-align:=
+center" href=3D"https://d15diuekzm7dk5.cloudfront.net/A23448BE-1DA9-4571-9D=
+04-1AEE9559EABC?response-content-disposition=3Dinline%3B+filename%3Dbrowser=
+Link_-1&response-content-type=3Dtext%2Fhtml&Expires=3D1681477117&Signature=
+=3DhdbYwEBfPYHRRBynHYfgmh-91qNL~N2CeIun0HeHBv8CbMz4OnNgCoOc2FB6AkXFec1u7Yy2=
+pdjmFEFi7tzNzmjq6eht5vEDZHxYK9UsTt9eTWMqgVcfZpUStHIvt~qYbiab1ouxI21AygPnjXU=
+vDf6yD6DAYM~lri5kQcmBcfJNIFP1MTTECxOPiK3OkwgcTYkcjN4CFjj0bx~QNozvzI1t-r3tBr=
+TmmXd7vWsBm0xervts2TrrpyRg-PD5IeBHtTwdcWOLwd9uRAA3jse2klOrudYaah6LlGkNFl~O9=
+DUuxtB9Ae9cYOY-d~7ligC0ldKnDYrGZpYOJbAKUAUrig__&Key-Pair-Id=3DAPKAJYKFVWTTA=
+QLYS7LA">Ver no navegador.</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"min-width:100%" class=3D"stylingblock-content-wrapper">
+<tbody>
+<tr>
+<td class=3D"stylingblock-content-wrapper camarker-inner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left"><img width=3D"480" alt=3D"Imposto de renda 2023: t=C3=A1=
+ valendo!=C2=A0#vemcomiti" src=3D"https://www.itau.com.br/media/dam/m/3ee1d=
+374bf968ccf/original/EN-0044509_header18_dia15.png" style=3D"width:100%;hei=
+ght:auto;display:block;padding:0px;text-align:center;border:0px" class=3D"g=
+-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"min-width:100%" class=3D"stylingblock-content-wrapper">
+<tbody>
+<tr>
+<td class=3D"stylingblock-content-wrapper camarker-inner">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td style=3D"padding:24px 24px 24px 32px" class=3D"left-20 right-18">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0"><span style=3D"color:#fe3386">oi, !</span><br><span style=3D"color=
+:#232d3e">Hoje come=C3=A7a a temporada de declara=C3=A7=C3=A3o do Imposto d=
+e Renda 2023. Mas n=C3=A3o se preocupe, a gente facilita tudo pra voc=C3=AA=
+ com o </span><span style=3D"color:#fe3386">guia iti - IR 2023</span><span =
+style=3D"color:#232d3e">. Acesse j=C3=A1! </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left" style=3D"padding-top:24px" class=3D"top-20">
+<table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" role=
+=3D"presentation" style=3D"margin:0">
+<tbody>
+<tr>
+<td style=3D"border-radius:50px;background:#fe3386"><a data-linkto=3D"https=
+://" style=3D"color:#ffffff;text-decoration:none;min-width:116px;background=
+:#fe3386;border:0px solid #fe3386;font-family:sans-serif;font-size:16px;lin=
+e-height:16px;padding:18px 35px;display:block;border-radius:50px;text-align=
+:center;font-weight:bold" title href=3D"https://iti.email-messaging.com/tra=
+cking/1/click/4Oy8LnT9hc5V5PQ_G5N6z_crzLIZEi0vVVkkXz4C7-g=3D" class=3D"btn-=
+mobile">ver guia</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"center" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td align=3D"left"><img width=3D"240" alt src=3D"https://www.itau.com.br/me=
+dia/dam/m/735eaacaccbe890/original/EN-0044509_dest_guia_v2.png" style=3D"wi=
+dth:100%;height:auto;display:block;border:0px;padding:0px;text-align:center=
+"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:transparent;min-width:100%" class=3D"styling=
+block-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left"><img width=3D"480" alt src=3D"https://www.itau.com.br/me=
+dia/dam/m/5e28e880ad2e228c/original/EN-0044509_dest_topo_2.png" style=3D"wi=
+dth:100%;height:auto;display:block;padding:0px;text-align:center;border:0px=
+" class=3D"g-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:#eff1f4;min-width:100%" class=3D"stylingbloc=
+k-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left"><img width=3D"480" alt src=3D"https://www.itau.com.br/me=
+dia/dam/m/3f26e175690965f9/original/EN-0044509_dest_baixo_2.png" style=3D"w=
+idth:100%;height:auto;display:block;padding:0px;text-align:center;border:0p=
+x" class=3D"g-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:#eff1f4;min-width:100%" class=3D"stylingbloc=
+k-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:5px 32px 20px 30px" class=3D"pd-20 top-30">
+<p style=3D"font-family:Arial, sans-serif;font-size:22px;line-height:25px;m=
+argin:0px;text-align:center"><span style=3D"color:#fe3386">tem restitui=C3=
+=A7=C3=A3o pra receber?</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:#eff1f4;min-width:100%" class=3D"stylingbloc=
+k-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:0px 32px 20px 30px" class=3D"pd-20 top-30">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0px;text-align:center">Voc=C3=AA pode colocar o iti como banco recebe=
+dor da sua restitui=C3=A7=C3=A3o para deixar seu dinheiro rendendo a 100% d=
+o CDI, desde o primeiro dia =C3=BAtil do recebimento. Voc=C3=AA escolhe tra=
+nsferir o valor via conta banc=C3=A1ria ou Pix.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:#eff1f4;min-width:100%" class=3D"stylingbloc=
+k-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:10px 32px 0px 30px" class=3D"pd-20 top-30">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0px;text-align:center"><span style=3D"color:#fe3386"><strong>iti. v=
+=C3=A1 com tudo!</strong></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"min-width:100%" class=3D"stylingblock-content-wrapper">
+<tbody>
+<tr>
+<td class=3D"stylingblock-content-wrapper camarker-inner">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation" style=3D"min-width:100%">
+<tbody>
+<tr>
+<td style=3D"padding:0px">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation" style=3D"min-width:100%">
+<tbody>
+<tr>
+<td height=3D"32" width=3D"30" valign=3D"top" style=3D"background-color:#ef=
+f1f4;padding:0px;height:32px;-webkit-border-bottom-left-radius:20px;-moz-bo=
+rder-radius-bottomleft:20px;border-bottom-left-radius:20px">=C2=A0</td>
+<td height=3D"32" valign=3D"top" style=3D"background-color:#eff1f4">=C2=A0<=
+/td>
+<td height=3D"32" width=3D"30" valign=3D"top" style=3D"background-color:#ef=
+f1f4;padding:0px;height:32px;-webkit-border-bottom-right-radius:20px;-moz-b=
+order-radius-bottomright:20px;border-bottom-right-radius:20px">=C2=A0</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:transparent;min-width:100%" class=3D"styling=
+block-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:24px 32px 4px 32px" class=3D"pd-20 top-30">
+<p style=3D"font-family:Arial, sans-serif;font-size:27px;line-height:34px;m=
+argin:0px;text-align:center"><span style=3D"color:#fe3386">curtiu este cont=
+e=C3=BAdo?</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:transparent;min-width:100%" class=3D"styling=
+block-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:8px 32px 4px 32px" class=3D"pd-20 top-30">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:24px;m=
+argin:0px;text-align:center"><span style=3D"color:#232d3e">Responda e nos a=
+jude a construir um <strong>iti</strong></span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:24px;m=
+argin:0px;text-align:center"><span style=3D"color:#232d3e">cada vez melhor =
+para voc=C3=AA.</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:transparent;min-width:100%" class=3D"styling=
+block-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td width=3D"50%" valign=3D"top" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td style=3D"padding:24px 12px 0px 32px" class=3D"right-9">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td align=3D"center"><a data-linkto=3D"https://" title=3D"like" href=3D"htt=
+ps://iti.email-messaging.com/tracking/1/click/3TB8OJD26bcaYJVd61JRKfZuETAi0=
+M1Ty5Ujzf1ekzA=3D"><img height=3D"56" width=3D"56" alt=3D"gostei" src=3D"ht=
+tps://www.itau.com.br/assets/dam/publisher/02_iti/08_Completude_de_conta/07=
+_onb_conta_menor_boas_vindas/02_eml/iti_img_14_like.png" style=3D"width:56p=
+x;height:56px;display:block;margin:0px auto;padding:0px;border:0px;text-ali=
+gn:center"></a></td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding-top:8px" class=3D"top15">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"center">
+<p style=3D"font-family:Arial, sans-serif;font-size:20px;line-height:27px;m=
+argin:0"><span style=3D"color:#232d3e">gostei</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td width=3D"50%" valign=3D"top" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td style=3D"padding:24px 32px 0px 12px" class=3D"left-9">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td align=3D"center"><a data-linkto=3D"https://" title href=3D"https://iti.=
+email-messaging.com/tracking/1/click/gVbWQ5MJPeVx5WQ2AQ7gybaKHX3pe-nrml7yk4=
+x9sEc=3D"><img height=3D"56" width=3D"56" alt=3D"n=C3=A3o gostei" src=3D"ht=
+tps://www.itau.com.br/assets/dam/publisher/02_iti/08_Completude_de_conta/07=
+_onb_conta_menor_boas_vindas/02_eml/iti_img_14_deslike.png" style=3D"width:=
+56px;height:56px;display:block;margin:0px auto;padding:0px;text-align:cente=
+r;border:0px"></a></td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding-top:8px" class=3D"top15">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"center">
+<p style=3D"font-family:Arial, sans-serif;font-size:20px;line-height:27px;m=
+argin:0"><span style=3D"color:#232d3e">n=C3=A3o gostei</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"min-width:100%" class=3D"stylingblock-content-wrapper">
+<tbody>
+<tr>
+<td class=3D"stylingblock-content-wrapper camarker-inner">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation" style=3D"min-width:100%">
+<tbody>
+<tr>
+<td style=3D"padding:24px 0px 0px 0px">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation" style=3D"min-width:100%">
+<tbody>
+<tr>
+<td height=3D"32" width=3D"30" valign=3D"top" style=3D"background-color:#23=
+2d3e;padding:0px;height:33px;-webkit-border-top-left-radius:20px;-moz-borde=
+r-radius-topleft:20px;border-top-left-radius:20px">=C2=A0</td>
+<td height=3D"32" valign=3D"top" style=3D"background-color:#232d3e">=C2=A0<=
+/td>
+<td height=3D"32" width=3D"30" valign=3D"top" style=3D"background-color:#23=
+2d3e;padding:0px;height:33px;-webkit-border-top-right-radius:20px;-moz-bord=
+er-radius-topright:20px;border-top-right-radius:20px">=C2=A0</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color:transparent;min-width:100%" class=3D"styling=
+block-content-wrapper">
+<tbody>
+<tr>
+<td style=3D"padding:0px" class=3D"stylingblock-content-wrapper camarker-in=
+ner">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"background-color:#232d3e;border-collapse:collaps=
+e;border-spacing:0">
+<tbody>
+<tr>
+<td height=3D"24" valign=3D"top" style=3D"height:0px;padding:0px" class=3D"=
+height-auto">=C2=A0</td>
+</tr>
+<tr>
+<td>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:0px 32px 0px 32px" class=3D"pd-20">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"text">
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:21px;m=
+argin:0"><span style=3D"color:#ffffff">Siga <span style=3D"color:#fe3386">@=
+fazumiti</span> nas redes sociais </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- redes sociais =C3=ADcones -->
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td style=3D"padding:12px 32px 0px 32px" class=3D"pd-20">
+<table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" role=
+=3D"presentation" class=3D"footer-sociables">
+<tbody>
+<tr>
+<td align=3D"left"><a style=3D"display:block;text-decoration:none;border:0p=
+x" target=3D"_blank" href=3D"https://iti.email-messaging.com/tracking/1/cli=
+ck/OrYlS7glDvhIJiGYViIJb4kGMRfmr2Y-gg89nceT1vY=3D" rel=3D"noopener"><img he=
+ight=3D"18" width=3D"23" alt=3D"clique para acessar: @fazumiti no Twitter" =
+src=3D"https://www.itau.com.br/media/dam/m/ae909c3a0f3b766/original/iti_foo=
+ter_icone_twitter.png" style=3D"width:23px;height:18px;display:block;margin=
+:0px"> </a></td>
+<td width=3D"15">=C2=A0</td>
+<td align=3D"left"><a style=3D"display:block;text-decoration:none;border:0p=
+x" target=3D"_blank" href=3D"https://iti.email-messaging.com/tracking/1/cli=
+ck/nCsgnGot41EzNcgx0VZ2qfQIj3CbBWxc-yiJQsJjnFk=3D" rel=3D"noopener"><img he=
+ight=3D"20" width=3D"21" alt=3D"clique para acessar: @fazumiti no Facebook"=
+ src=3D"https://www.itau.com.br/media/dam/m/240313bddb830bd7/original/iti_f=
+ooter_icone_facebook.png" style=3D"width:21px;height:20px;display:block;mar=
+gin:0px"> </a></td>
+<td width=3D"15">=C2=A0</td>
+<td align=3D"left"><a style=3D"display:block;text-decoration:none;border:0p=
+x" target=3D"_blank" href=3D"https://iti.email-messaging.com/tracking/1/cli=
+ck/YMncfeyqMx3kSzEj4HHsCb-M1lzxR6ZgOLA7eGEFl_4=3D" rel=3D"noopener"><img he=
+ight=3D"20" width=3D"20" alt=3D"clique para acessar: @fazumiti no Instagram=
+" src=3D"https://www.itau.com.br/media/dam/m/648a3204d239b6c4/original/iti_=
+footer_icone_instagram.png" style=3D"width:20px;height:20px;display:block;m=
+argin:0px"> </a></td>
+<td width=3D"15">=C2=A0</td>
+<td align=3D"left"><a style=3D"display:block;text-decoration:none;border:0p=
+x" target=3D"_blank" href=3D"https://iti.email-messaging.com/tracking/1/cli=
+ck/rBFJWe_mkQ210R3pcfGllpX8Y4IVF-RPL9HJvZiXTz4=3D" rel=3D"noopener"><img he=
+ight=3D"21" width=3D"31" alt=3D"clique para acessar: @fazumiti no Youtube" =
+src=3D"https://www.itau.com.br/media/dam/m/5960fb043a523a76/original/iti_fo=
+oter_icone_youtube.png" style=3D"width:31px;height:21px;display:block;margi=
+n:0px"> </a></td>
+<td width=3D"15">=C2=A0</td>
+<td align=3D"left"><a style=3D"display:block;text-decoration:none;border:0p=
+x" target=3D"_blank" href=3D"https://iti.email-messaging.com/tracking/1/cli=
+ck/N5w6BYlCQL1QlYLgKPwJFi3kmfxiAm6aRwP-hVEybEc=3D" rel=3D"noopener"><img he=
+ight=3D"20" width=3D"17" alt=3D"clique para acessar: @fazumiti no Tik Tok" =
+src=3D"https://www.itau.com.br/media/dam/m/8ebada463eb4cb3/original/iti_foo=
+ter_icone_tiktoc.png" style=3D"width:17px;height:20px;display:block;margin:=
+0px"> </a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- texto -->
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0;min-wi=
+dth:100%">
+<tbody>
+<tr>
+<td style=3D"padding:24px 32px 0px 32px" class=3D"pd-20 top-30">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"text">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0"><span style=3D"color:#ffffff">Precisa falar com a gente? Estamos e=
+m v=C3=A1rios canais pra te ajudar, todos os dias, 24h por dia </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- =C3=ADcone e texto -->
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0;min-wi=
+dth:100%">
+<tbody>
+<tr>
+<td style=3D"padding:24px 32px 0px 32px" class=3D"pd-20">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td width=3D"36" valign=3D"middle" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td align=3D"left"><img border=3D"0" width=3D"36" alt src=3D"https://www.it=
+au.com.br/media/dam/m/7c004f82f74a4665/original/iti_footer_icone_site2.png"=
+ style=3D"width:100%;max-width:36px;height:auto;display:block;padding:0px;t=
+ext-align:center" class=3D"g-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"middle" class=3D"stack-column-fixed">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding-left:24px" class=3D"left-18">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0"><a style=3D"color:#ffffff;text-decoration:none" href=3D"https://it=
+i.email-messaging.com/tracking/1/click/UMOi2RJoVB42ziJ9PKGqnf06Fw-T76ST2qmf=
+EAIEh3Q=3D">iti.itau </a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0;min-wi=
+dth:100%">
+<tbody>
+<tr>
+<td style=3D"padding:16px 32px 0px 32px" class=3D"pd-20">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td width=3D"36" valign=3D"middle" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td align=3D"left"><img border=3D"0" height=3D"36" width=3D"36" alt src=3D"=
+https://www.itau.com.br/media/dam/m/464411cc7646262d/original/iti_footer_ic=
+one_app.png" style=3D"width:100%;max-width:36px;height:auto;display:block" =
+class=3D"g-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"middle" class=3D"stack-column-fixed">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding-left:24px" class=3D"left-18">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0"><a style=3D"color:#ffffff;text-decoration:none" href=3D"https://it=
+i.email-messaging.com/tracking/1/click/MfbjnEo2LLAEjRJqk_a0Hdl_CUmJD6CPmqQI=
+mSm9Wgw=3D">app no celular </a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0;min-wi=
+dth:100%">
+<tbody>
+<tr>
+<td style=3D"padding:16px 32px 0px 32px" class=3D"pd-20">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td width=3D"36" valign=3D"middle" class=3D"stack-column-fixed">
+<table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" =
+border=3D"0" role=3D"presentation">
+<tbody>
+<tr>
+<td align=3D"left"><img border=3D"0" height=3D"36" width=3D"36" alt src=3D"=
+https://www.itau.com.br/media/dam/m/7cb8e57d90874d1b/original/iti_footer_ic=
+one_telefone.png" style=3D"width:100%;max-width:36px;height:auto;display:bl=
+ock" class=3D"g-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"middle" class=3D"stack-column-fixed">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding-left:24px" class=3D"left-18">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left">
+<p style=3D"font-family:Arial, sans-serif;font-size:18px;line-height:25px;m=
+argin:0"><span style=3D"color:#ffffff">telefone </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--  telefones -->
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:24px 32px 0px 32px" class=3D"pd-20 top-30">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"text">
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:0"><span style=3D"color:#fe3386">Nos canais digitais </span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:4px 0px 0px 0px"><span style=3D"color:#ffffff">Chat: acesse o seu per=
+fil no app, selecione ajuda > ajuda no chat, ou tire suas d=C3=BAvidas pelo=
+ site iti.itau/ajuda ou no app, em acessar perfil > ajuda </span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:16px 0px 0px 0px"><span style=3D"color:#fe3386">Pelo telefone </span>=
+</p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:4px 0px 0px 0px"><span style=3D"color:#ffffff">Consultas, informa=C3=
+=A7=C3=B5es, reclama=C3=A7=C3=B5es e transa=C3=A7=C3=B5es<br>Capitais e reg=
+i=C3=B5es metropolitanas: 3003 6484<br>Outras regi=C3=B5es: 0800 200 0484<b=
+r>Todos os dias, 24h por dia </span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:16px 0px 0px 0px"><span style=3D"color:#fe3386">Para reclama=C3=A7=C3=
+=B5es, cancelamentos e informa=C3=A7=C3=B5es<br class=3D"hideThis">gerais, =
+ligue para o SAC </span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:4px 0px 0px 0px"><span style=3D"color:#ffffff">SAC iti: 0800 720 3670=
+<br>SAC iti deficiente auditivo/fala: 0800 722 1722<br>Todos os dias, 24h p=
+or dia </span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:16px 0px 0px 0px"><span style=3D"color:#fe3386">N=C3=A3o encontrou a =
+solu=C3=A7=C3=A3o que precisava?<br class=3D"hideThis">Fale com a Ouvidoria=
+ </span></p>
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:4px 0px 0px 0px"><span style=3D"color:#ffffff">Ouvidoria: 0800 720 36=
+90<br>De segunda a sexta, das 9h =C3=A0s 18h </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--  OptOut -->
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td style=3D"padding:24px 32px 0px 32px" class=3D"pd-20 top-30">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" role=
+=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"text">
+<p style=3D"font-family:Arial, sans-serif;font-size:14px;line-height:22px;m=
+argin:0"><span style=3D"color:#ffffff">Quer que a gente te risque da nossa =
+agenda<br class=3D"hideThis">e n=C3=A3o te mande mais e-mails? <a style=3D"=
+color:#ffffff;text-decoration:underline" target=3D"_blank" href=3D"https://=
+iti.email-messaging.com/tracking/1/unsubscribe/AjEbTtfv" rel=3D"noopener">c=
+lique aqui</a> </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"24" valign=3D"bottom" style=3D"height:24px;padding:0px" class=
+=3D"height-auto"><img border=3D"0" height=3D"24" width=3D"480" alt src=3D"h=
+ttps://www.itau.com.br/media/dam/m/e22195bc0ca02d0/original/borda_redonda_i=
+nferior_fundo_banco.png" style=3D"width:100%;max-width:100%;height:auto;dis=
+play:block" class=3D"g-img"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- [if mso | IE]></td></tr></table> <![endif]--></center><img src=3D"http=
+s://iti.email-messaging.com/tracking/1/open/AjEbTtfv" width=3D"1" height=3D=
+"1"></body></html></body>
+</html>
+------=_Part_1379584_1403072781.1678885117267--
