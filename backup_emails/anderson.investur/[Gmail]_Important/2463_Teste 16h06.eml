@@ -1,0 +1,97 @@
+Delivered-To: anderson.investur@gmail.com
+Received: by 2002:a59:d3e9:0:b0:2d3:648a:d952 with SMTP id ck9csp871616vqb;
+        Tue, 27 Sep 2022 12:08:21 -0700 (PDT)
+X-Google-Smtp-Source: =?utf-8?q?AMsMyM5vY+sjRE2IGbsinF3Zf44wvk4xvh8lkZ37oUAt?=
+ =?utf-8?q?UNt4FxnIsqT8OgLu3FVjUvXSo5T46FiDujx/Yjg=3D?=
+X-Received: by 2002:a05:6102:107:b0:39a:8f22:8445 with SMTP id
+ z7-20020a056102010700b0039a8f228445mr12304661vsq.22.1664305700618;       
+ Tue, 27 Sep 2022 12:08:20 -0700 (PDT)
+Authentication-Results: mx.google.com;       spf=pass (google.com: domain of
+ tanabe171@gmail.com designates 209.85.218.49 as permitted sender)
+ smtp.mailfrom=tanabe171@gmail.com;       dkim=pass header.i=@gmail.com
+ header.s=20210112 header.b=amYZEz5k
+Received-SPF: pass (google.com: domain of tanabe171@gmail.com designates
+ 209.85.218.49 as permitted sender) client-ip=209.85.218.49;
+Received: by 2002:a05:6130:388:b0:3d2:2af4:deb2 with POP3 id
+ az8-20020a056130038800b003d22af4deb2mf94914uab.4;        Tue, 27 Sep 2022
+ 12:08:20 -0700 (PDT)
+X-Gmail-Fetch-Info:
+ anderson@investur.com.br 3 email-ssl.com.br 995 anderson@investur.com.br
+Return-Path: <tanabe171@gmail.com>
+Delivered-To: anderson@investur1hospedagemdesitesws70630362
+Received: from arnie0141.email.locaweb.com.br ([10.31.68.135])	by
+ lisa0545.email.locaweb.com.br with LMTP id +AGQOc1JM2PVCQAAsCxUlQ	for
+ <anderson@investur1hospedagemdesitesws70630362>; Tue, 27 Sep 2022 16:06:54
+ -0300
+Received: from arnie0141.email.locaweb.com.br ([127.0.0.1])
+	by arnie0141.email.locaweb.com.br with LMTP id gPh/Oc1JM2MuVwAAXJuZKQ
+	; Tue, 27 Sep 2022 16:06:53 -0300
+X-Original-To: <anderson@investur.com.br>
+Received: from arnie0141.email.locaweb.com.br (localhost [127.0.0.1])
+	by arnie0141.email.locaweb.com.br (Postfix) with ESMTP id E20577201A5
+	for <anderson@investur.com.br>; Tue, 27 Sep 2022 16:06:53 -0300 (-03)
+Received: from burns0008.correio.biz (bob0009.email.locaweb.com.br
+ [10.31.68.141])	by arnie0141.email.locaweb.com.br (Postfix) with ESMTP id
+ B918B720169	for <atendimento@investur.com.br>; Tue, 27 Sep 2022 16:06:53
+ -0300 (-03)
+X-DKIM: Sendmail DKIM Filter v2.8.2 arnie0141.email.locaweb.com.br B918B720169
+Authentication-Results: arnie0141.email.locaweb.com.br; dkim=pass
+	(2048-bit key) header.i=@gmail.com; dkim-adsp=none
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com
+ [209.85.218.49])	by burns0008.correio.biz (Postfix) with ESMTPS id
+ 4McTd93gJCz1Zc	for <atendimento@investur.com.br>; Tue, 27 Sep 2022 16:06:53
+ -0300 (-03)
+Received: by mail-ej1-f49.google.com with SMTP id dv25so22627751ejb.12       
+ for <atendimento@investur.com.br>; Tue, 27 Sep 2022 12:06:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date;
+        bh=BNpR+DYaoszb1fYEYdL+SuDliTY/sPVYtIvgwZ7/loI=;
+        b=amYZEz5koLV+LhapWZonDMonE56VLTN3SLs1q2eIL47FIMQRAeznNOm2Z6i6M0tcHi
+         tMY5mmGhch8YBiEZACuzxd9z3nA4imMV5Y8fF3x2t2YPXSIS1iP0gmlUZDQlgNSICjTs
+         mObFFi+VSlCGnDPhfhdS8TZqGKDPMexJEAzqHHWUk732KtSGM355aCpzrbQq4IHZwvV7
+         VT8o0MtuIs4kGGzHGU6428VGmTraHLhrElJugR5joH2afaQzcT+x8DlfT3gkvM0eUc6V
+         8oFhVAP2g87K+C/al7h3/9T8VY6JcgcTJ2aCSVMEXQBHTQJgx/L2JeMdp/tpsl7o7HVS
+         omiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date;
+        bh=BNpR+DYaoszb1fYEYdL+SuDliTY/sPVYtIvgwZ7/loI=;
+        b=Os+yhDTXFamcNgtv69vGJBCk8uppqgQ8uYY0gV1Jo4dRv52LcbSKIU8DL9PSgAApJl
+         mjFsk5DhjbJcynE+cwdzClmApW9GwGl0u+EZihEx89+s96SLgJ8DfpEB+2mrToHLYSrb
+         AKWNBlW+rXyKAoWH4K491TqQlqaJvcc3lPSzMVop3ibNRpNC/be2D+mMhVLTxRNyB3TS
+         PWB2hdGZrbACtkZfcX92YQzd4iodRHqzg+kPxVlRZ/TYpzVP9VTyzyULQ8IhtUrLJ60z
+         HI8/0fGzd+4uSvKShCWFJhkwIFIKTfFy24Zq5JK2HHLy8sfWcvantE5RbUDknh9Evu+B
+         c6RA==
+X-Gm-Message-State: ACrzQf0D4Tb6kc3aeLEJz/gYuWgTwtL3hgtmvrlW79dKisuUeYz2i6Ll
+	IqFgrBXflt3xfaQjk6mKqT7RKc/7ivOL7Iwb86fdcqk=
+X-Received: by 2002:a17:906:4fcc:b0:782:e248:c8a8 with SMTP id
+ i12-20020a1709064fcc00b00782e248c8a8mr16723623ejw.717.1664305611585; Tue, 27
+ Sep 2022 12:06:51 -0700 (PDT)
+MIME-Version: 1.0
+From: Ana Paula Tanabe <tanabe171@gmail.com>
+Date: Tue, 27 Sep 2022 16:06:38 -0300
+Message-ID:
+ <CAO=Hmepd38BFjZLOrWKudNLQ3nAJuSWanVUOXr37zoAXFri=qw@mail.gmail.com>
+X-mb: yes
+Subject: Teste 16h06
+To: atendimento@investur.com.br
+Content-Type: multipart/alternative; boundary="000000000000c6bb4705e9ad58de"
+
+--000000000000c6bb4705e9ad58de
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+DQo=
+
+--000000000000c6bb4705e9ad58de
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+PGRpdiBkaXI9ImF1dG8iPjwvZGl2Pg0K
+
+--000000000000c6bb4705e9ad58de--

@@ -1,0 +1,84 @@
+Delivered-To: anderson.investur@gmail.com
+Received: by 2002:a59:d3e9:0:b0:2d3:648a:d952 with SMTP id ck9csp823545vqb;
+        Tue, 27 Sep 2022 10:43:06 -0700 (PDT)
+X-Google-Smtp-Source: =?utf-8?q?AMsMyM4GizAsz7VNwSZAb317N5oojM81F4cRqTP8M0m2?=
+ =?utf-8?q?5aPxs5lmHDrtZhBx9FE6e8QnaQ8nn0ctiuTeBkY=3D?=
+X-Received: by 2002:a05:6a00:3492:b0:540:b30d:8396 with SMTP id
+ cp18-20020a056a00349200b00540b30d8396mr30416847pfb.81.1664300585357;       
+ Tue, 27 Sep 2022 10:43:05 -0700 (PDT)
+Authentication-Results: mx.google.com;       spf=fail (google.com: domain of
+ jenifer@investur.com.br does not designate 209.85.166.50 as permitted sender)
+ smtp.mailfrom=jenifer@investur.com.br
+Received-SPF: fail (google.com: domain of jenifer@investur.com.br does not
+ designate 209.85.166.50 as permitted sender) client-ip=209.85.166.50;
+Received: by 2002:a62:5546:0:b0:536:172a:7abf with POP3 id
+ j67-20020a625546000000b00536172a7abfmf1090499pfb.4;        Tue, 27 Sep 2022
+ 10:43:05 -0700 (PDT)
+X-Gmail-Fetch-Info:
+ anderson@investur.com.br 3 email-ssl.com.br 995 anderson@investur.com.br
+Return-Path: <jenifer@investur.com.br>
+Delivered-To: anderson@investur1hospedagemdesitesws70630362
+Received: from arnie0141.email.locaweb.com.br ([10.31.68.135])	by
+ lisa0545.email.locaweb.com.br with LMTP id WObPBTg1M2PSCgAAsCxUlQ	for
+ <anderson@investur1hospedagemdesitesws70630362>; Tue, 27 Sep 2022 14:39:04
+ -0300
+Received: from arnie0141.email.locaweb.com.br ([127.0.0.1])
+	by arnie0141.email.locaweb.com.br with LMTP id IMG0BTg1M2MvBAAAXJuZKQ
+	; Tue, 27 Sep 2022 14:39:04 -0300
+X-Original-To: <anderson@investur.com.br>
+Received: from arnie0141.email.locaweb.com.br (localhost [127.0.0.1])
+	by arnie0141.email.locaweb.com.br (Postfix) with ESMTP id 0D2C47201B0
+	for <anderson@investur.com.br>; Tue, 27 Sep 2022 14:39:03 -0300 (-03)
+Received: from mcbain0007.email.locaweb.com.br (bob0009.email.locaweb.com.br
+ [10.31.68.141])	by arnie0141.email.locaweb.com.br (Postfix) with ESMTP id
+ 9EFD172019C	for <atendimento@investur.com.br>; Tue, 27 Sep 2022 14:39:03
+ -0300 (-03)
+X-DKIM: Sendmail DKIM Filter v2.8.2 arnie0141.email.locaweb.com.br 9EFD172019C
+Received: from proxy.email-ssl.com.br (unknown [10.31.120.68])
+	by mcbain0007.email.locaweb.com.br (Postfix) with ESMTP id D2A0824061D
+	for <atendimento@investur.com.br>; Tue, 27 Sep 2022 14:31:42 -0300 (-03)
+x-locaweb-id: =?utf-8?q?t3Mm2GZLDAbZ2EZMtxwL9oS7XwC5HiCVE1rJlmRqAN1AJMRTyL03?=
+ =?utf-8?q?rAyw3HL05Ykpa18ZMa0Y6fH3SNjfMokxcYNTSxFwRoBZyNNSWqkdMSpvfAn71EezE?=
+ =?utf-8?q?fShuNdZi9HVvC6jAJc3t3aj3TKIrKzhOfNHF-n-lBe3sn3qCmeSt130lmC6HCPW3l?=
+ =?utf-8?q?Gv=5FsO-TyzCxhR7nmN4t9KqS7ffJgId-A=3D=3D?=
+ NmE2NTZlNjk2NjY1NzI0MDY5NmU3NjY1NzM3NDc1NzIyZTYzNmY2ZDJlNjI3Mg==
+X-LocaWeb-COR: locaweb_2009_x-mail
+X-AuthUser: jenifer@investur.com.br
+Received: from mail-io1-f50.google.com (mail-io1-f50.google.com
+ [209.85.166.50])	(Authenticated sender: jenifer@investur.com.br)	by
+ proxy.email-ssl.com.br (Postfix) with ESMTPSA id 765EF580173	for
+ <atendimento@investur.com.br>; Tue, 27 Sep 2022 14:39:02 -0300 (-03)
+Received: by mail-io1-f50.google.com with SMTP id 138so8303434iou.9        for
+ <atendimento@investur.com.br>; Tue, 27 Sep 2022 10:39:02 -0700 (PDT)
+X-Gm-Message-State: ACrzQf32mFneWFTAwTa6/2nZ5X5vFONFjGVQ5NOZTlLfk3T1x4vGpg1V
+	EncgJVNHrPXKU7cDwNrbqy5lqptB+CmoS7JfVxY=
+X-Received: by 2002:a05:6638:168a:b0:35a:6acf:f94 with SMTP id
+ f10-20020a056638168a00b0035a6acf0f94mr14531725jat.106.1664300341022; Tue, 27
+ Sep 2022 10:39:01 -0700 (PDT)
+MIME-Version: 1.0
+From: jenifer investur <jenifer@investur.com.br>
+Date: Tue, 27 Sep 2022 14:38:49 -0300
+X-Gmail-Original-Message-ID:
+ <CAH-D4_ffbQjF+xr234Bb3fGXptwaKe=Ck7Z8AQnJkEqEnEWQBg@mail.gmail.com>
+Message-ID:
+ <CAH-D4_ffbQjF+xr234Bb3fGXptwaKe=Ck7Z8AQnJkEqEnEWQBg@mail.gmail.com>
+X-mb: yes
+Subject: teste 1
+To: Atendimento - Investur Operadora <atendimento@investur.com.br>
+Content-Type: multipart/alternative; boundary="000000000000a055b005e9ac1ee1"
+
+--000000000000a055b005e9ac1ee1
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+DQo=
+
+--000000000000a055b005e9ac1ee1
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+<div dir="ltr"><br clear="all"><div><div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature"><div dir="ltr"><img src="https://ci3.googleusercontent.com/mail-sig/AIorK4z1OWGpvLlUylof5e0Negkxh9pUGEnwYdYtQY4_b3gWtuziKGVr2GRtHn5q8TqdyeNePhXyDPI" width="420" height="235"><br></div></div></div></div>
+
+--000000000000a055b005e9ac1ee1--
