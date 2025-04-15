@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    recupere seu codigo aqui , codigo abaixo e o delet , perfect status :  
+
+    <!--
 import os
 import time
 import socket
@@ -8,8 +19,7 @@ import imaplib
 
 socket.setdefaulttimeout(300)
 
-# Data de corte: 2.1 anos atrás
-DATA_CORTE = (datetime.datetime.now() - datetime.timedelta(days=int(0))).strftime("%d-%b-%Y")
+DATA_CORTE = None
 
 load_dotenv()
 
@@ -57,7 +67,7 @@ def verificar_conexao(mail):
     except:
         return False
 
-def limpar_pasta(mail, pasta, email, senha, data_corte):
+def limpar_pasta(mail, pasta, email, senha):
     try:
         print(f"\n[📁] Processando pasta: {pasta}")
         try:
@@ -67,34 +77,24 @@ def limpar_pasta(mail, pasta, email, senha, data_corte):
             print(f"[-] Erro ao selecionar pasta: {str(e)}")
             return False
 
-        data_corte_datetime = datetime.datetime.strptime(data_corte, "%d-%b-%Y")
-        print(f"[📅] Data de corte configurada: {data_corte} ({data_corte_datetime.date()})")
+        if DATA_CORTE:
+            messages = mail.search(['BEFORE', DATA_CORTE])
+        else:
+            messages = mail.search(['ALL'])
 
-        todos_ids = mail.search(['ALL'])
-        apagar_ids = []
-
-        for uid in todos_ids:
-            try:
-                envelope = mail.fetch([uid], ['ENVELOPE'])[uid][b'ENVELOPE']
-                data_email = envelope.date.replace(tzinfo=None)
-                if data_email.date() <= data_corte_datetime.date():
-                    apagar_ids.append(uid)
-            except Exception as e:
-                print(f"[-] Erro ao obter data do e-mail UID {uid}: {str(e)}")
-                continue
-
-        total = len(apagar_ids)
+        total = len(messages)
 
         if total == 0:
-            print(f"[!] Nenhum e-mail encontrado em '{pasta}' anterior ou igual a {data_corte}")
+            print(f"[!] Nenhum e-mail encontrado em '{pasta}'")
             return True
 
-        print(f"[ℹ] Encontrados {total} e-mails para deletar")
+        print(f"[ℹ] Encontrados {total} emails para deletar")
 
         batch_size = 100
         for i in range(0, total, batch_size):
-            batch = apagar_ids[i:i+batch_size]
+            batch = messages[i:i+batch_size]
             try:
+                mail.remove_flags(batch, [b'\\Deleted'])
                 mail.add_flags(batch, [b'\\Deleted'])
                 mail.expunge()
                 percent = min((i + len(batch)) / total * 100, 100)
@@ -117,7 +117,7 @@ def limpar_pasta(mail, pasta, email, senha, data_corte):
         print(f"\n[-] ERRO em '{pasta}': {str(e)}")
         return False
 
-def limpar_conta_completa(email, senha, data_corte):
+def limpar_conta_completa(email, senha):
     mail = conectar_gmail(email, senha)
     if not mail:
         return
@@ -152,7 +152,7 @@ def limpar_conta_completa(email, senha, data_corte):
                     mail = conectar_gmail(email, senha)
                     if not mail:
                         return
-                limpar_pasta(mail, pasta, email, senha, data_corte)
+                limpar_pasta(mail, pasta, email, senha)
             except Exception as e:
                 print(f"[-] Erro ao processar pasta {pasta}: {str(e)}")
                 continue
@@ -162,34 +162,15 @@ def limpar_conta_completa(email, senha, data_corte):
             try:
                 mail.select_folder(pasta)
                 remaining = mail.search(['ALL'])
-                if not remaining:
-                    continue
-
-                data_corte_datetime = datetime.datetime.strptime(data_corte, "%d-%b-%Y")
-                apagar_ids = []
-
-                for uid in remaining:
-                    try:
-                        envelope = mail.fetch([uid], ['ENVELOPE'])[uid][b'ENVELOPE']
-                        data_email = envelope.date.replace(tzinfo=None)
-                        if data_email.date() <= data_corte_datetime.date():
-                            apagar_ids.append(uid)
-                        else:
-                            print(f"[⚠] UID {uid} em '{pasta}' é recente ({data_email.date()}), não será apagado.")
-                    except Exception as e:
-                        print(f"[-] Erro ao verificar UID {uid} na verificação final: {str(e)}")
-
-                if apagar_ids:
-                    print(f"[🔒] Deletando {len(apagar_ids)} e-mails antigos restantes em '{pasta}'...")
-                    mail.delete_messages(apagar_ids)
+                if remaining:
+                    print(f"[!] Encontrados {len(remaining)} e-mails restantes em '{pasta}'")
+                    mail.delete_messages(remaining)
                     mail.expunge()
-                else:
-                    print(f"[⏭] Nenhum e-mail seguro para apagar em '{pasta}'")
-
             except Exception as e:
                 print(f"[-] Erro na verificação final: {str(e)}")
                 continue
 
+        # 🔁 Expurgo final e forçado
         print("\n[🔁] Expurgo reforçado em All Mail e Trash...")
         try:
             mail.select_folder('[Gmail]/All Mail', readonly=False)
@@ -197,12 +178,52 @@ def limpar_conta_completa(email, senha, data_corte):
             if remaining:
                 print(f"[🔁] Movendo {len(remaining)} e-mails de '[Gmail]/All Mail' para '[Gmail]/Trash'...")
                 mail.move(remaining, '[Gmail]/Trash')
+                time.sleep(2)
         except Exception as e:
-            print(f"[-] Erro durante expurgo reforçado: {str(e)}")
+            print(f"[-] Erro ao mover de All Mail para Trash: {str(e)}")
 
-    except Exception as e:
-        print(f"[-] Erro ao processar a conta completa: {str(e)}")
+        try:
+            mail.select_folder('[Gmail]/Trash', readonly=False)
+            trash_remaining = mail.search(['ALL'])
+            if trash_remaining:
+                print(f"[🔥] Expungando {len(trash_remaining)} e-mails da lixeira...")
+                mail.add_flags(trash_remaining, [b'\\Deleted'])
+                mail.expunge()
+        except Exception as e:
+            print(f"[-] Erro ao expungar da lixeira: {str(e)}")
 
-# Executa a limpeza em todas as contas
-for conta in ACCOUNTS:
-    limpar_conta_completa(conta["email"], conta["senha"], DATA_CORTE)
+    finally:
+        try:
+            mail.close_folder()
+        except:
+            pass
+        try:
+            mail.logout()
+        except:
+            pass
+
+        print(f"\n[🎉] Limpeza COMPLETA concluída para {email}!")
+        print("[❗] Verifique sua conta para confirmar.")
+
+if __name__ == "__main__":
+    print("=============================================")
+    print(" LIMPEZA COMPLETA E PERMANENTE DE E-MAILS ")
+    print("=============================================")
+    print("[❗] AVISO: Esta ação é IRREVERSÍVEL!")
+    print("[❗] TODOS os e-mails serão PERDIDOS!")
+    print("=============================================\n")
+
+    confirmacao = input("Digite 'APAGAR TUDO' para confirmar: ").strip()
+
+    if confirmacao == 'APAGAR TUDO':
+        for acc in ACCOUNTS:
+            if acc["email"] and acc["senha"]:
+                print(f"\n\n[⚡] INICIANDO LIMPEZA PARA: {acc['email']}")
+                limpar_conta_completa(acc["email"], acc["senha"])
+                print("\n" + "="*50 + "\n")
+    else:
+        print("\n[🚫] Operação cancelada")
+        print(f"Você digitou: '{confirmacao}' ao invés de 'APAGAR TUDO'")
+-->
+</body>
+</html>
