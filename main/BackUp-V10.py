@@ -145,7 +145,7 @@ def limpar_conta_completa(email, senha):
         print(f"\n[🔍] Iniciando limpeza TOTAL para {email}")
         print("[⚠️] ATENÇÃO: TODOS os e-mails serão apagados permanentemente!")
 
-        # Count total folders for progress bar
+        # Barra de contagem de pastas 
         total_pastas = len([p for p in PASTAS if p.strip('"') in pastas])
         total_pastas += len([p for p in pastas if p not in [p.strip('"') for p in PASTAS]])
 
@@ -172,15 +172,15 @@ def limpar_pasta(mail, pasta, email):
     try:
         print(f"\n[📁] Processando pasta: {pasta}")
         
-        # Map folder names and handle selection
+        # Mapear as pastas 
         try:
-            # Get actual folder list from Gmail
+            # pegar o primeiro item da lista de pastas do gmail
             status, folder_list = mail.list()
             if status != "OK":
                 print(f"[-] Erro ao listar pastas")
                 return
                 
-            # Find the correct folder name
+            # Procurar pelo nome correto da pasta
             folder_name = None
             for folder in folder_list:
                 folder_decoded = folder.decode()
@@ -191,7 +191,7 @@ def limpar_pasta(mail, pasta, email):
             if not folder_name:
                 folder_name = pasta
             
-            # Select the folder
+            # Selecionar pasta
             status, _ = mail.select(folder_name, readonly=False)
             if status != "OK":
                 print(f"[-] Não foi possível acessar a pasta '{pasta}'")
@@ -201,7 +201,7 @@ def limpar_pasta(mail, pasta, email):
             print(f"[-] Erro ao selecionar pasta '{pasta}': {e}")
             return
 
-        # Search for ALL emails without date restriction
+        # Procurar por todas as pastads da datacorte
         try:
             status, data = mail.search(None, 'ALL')
             if status != "OK":
@@ -217,7 +217,7 @@ def limpar_pasta(mail, pasta, email):
 
             print(f"[🔍] Encontrados {total_emails} e-mail(s) para limpar em '{pasta}'")
             
-            # Process in smaller batches
+            # processar em pequenasbatches
             batch_size = 100
             deleted_count = 0
             
@@ -227,7 +227,7 @@ def limpar_pasta(mail, pasta, email):
                 
                 try:
                     
-                    # Progress display
+                    # Progresso display
                     progress = (i + len(batch)) / total_emails
                     bar_length = 40
                     filled_length = int(bar_length * progress)
@@ -263,28 +263,28 @@ def limpar_texto(texto):
 
 def clean_filename(name):
     """Clean filename from invalid characters"""
-    # Remove or replace problematic characters
+    # Remove um caractere problematico
     name = str(name)
     
-    # Remove escape sequences and special characters
+    # Remove e escapa qualquer tipo de caractere especial
     name = re.sub(r'\x1b[^m]*m', '', name)
     name = re.sub(r'\x1b[$()][\w@]', '', name)
     name = re.sub(r'[\x00-\x1f\x7f-\xff]', '', name)
     
-    # Replace invalid filename characters with underscores
+    # Reescreve qualquer tipo de arquivo com underscores
     name = re.sub(r'[<>:"/\\|?*\r\n\t@\[\]]', '_', name)  # Added [ and ]
     name = re.sub(r'[_ ]+', '_', name)  # Replace multiple underscores/spaces with single underscore
     name = re.sub(r'[.]', '_', name)  # Replace dots with underscores
     
-    # Additional sanitization
+    # Sinalizasao adicional
     name = ''.join(char for char in name if ord(char) < 128)
     name = name.strip('_. ')  # Remove leading/trailing underscores, dots and spaces
     
-    # If name is empty after cleaning, use a default
+    # Se o nome for vazio limpar e o usar o padrao 
     if not name or len(name.strip()) == 0:
         name = f"email_{datetime.datetime.now().strftime('%H%M%S')}"
     
-    # Limit length to avoid path issues (Windows has a 260 character path limit)
+    # limite de length de 240 c
     return name[:40]  # Shortened max length to accommodate full pat
 
 
@@ -316,7 +316,7 @@ def extrair_corpo_email(email_msg):
 def get_email_filename(email_msg):
     """Creates a meaningful filename from email subject and date"""
     try:
-        # Get and clean subject
+        # Pegar e limpar
         subject = decode_header(email_msg['Subject'])[0][0]
         if isinstance(subject, bytes):
             try:
@@ -326,7 +326,7 @@ def get_email_filename(email_msg):
         elif subject is None:
             subject = "No Subject"
         
-        # Get and format date
+        # Pegar e limpar uma data
         date_str = email_msg['Date']
         if date_str:
             try:

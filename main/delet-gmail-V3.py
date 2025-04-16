@@ -9,7 +9,7 @@ import imaplib
 socket.setdefaulttimeout(300)
 
 # Data de corte: 2.1 anos atrás
-DATA_CORTE = (datetime.datetime.now() - datetime.timedelta(days=int(0))).strftime("%d-%b-%Y")
+DATA_CORTE = (datetime.datetime.now() - datetime.timedelta(days=int(365*2.1))).strftime("%d-%b-%Y")
 
 load_dotenv()
 

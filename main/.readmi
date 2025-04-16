@@ -1,4 +1,0 @@
-### Notas versao aprimorada ###
-
--uso um sistema de credencial fora do codigo para proteger a seguranca e ficar mais facil na hora de escrever o codigo.
--se prescisar adicionar contas e senhas coloque no .env pois la redireciona para o codigo 
