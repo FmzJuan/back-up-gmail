@@ -1,0 +1,79 @@
+📥 Backup de E-mails - BackUp-V10.py
+Este script realiza o backup completo de e-mails do Gmail, utilizando a API oficial do Google. É ideal para arquivamento local seguro, com preservação total das mensagens e anexos.
+
+Principais funcionalidades:
+
+Autenticação via OAuth 2.0.
+
+Listagem e seleção de pastas (labels).
+
+Download de e-mails com anexos no formato .eml.
+
+Organização dos arquivos por pasta de origem.
+
+Exibição do progresso e da contagem de e-mails processados.
+
+🗑️ Exclusão de E-mails - delet-gmail-V3.py
+Script para exclusão em massa de e-mails, diretamente da conta Gmail, usando a API do Google.
+
+Principais funcionalidades:
+
+Autenticação OAuth 2.0.
+
+Seleção de pastas para exclusão.
+
+Exclusão permanente dos e-mails (sem envio para lixeira).
+
+Progresso e contagem de mensagens deletadas.
+
+⚠️ Atenção: Os e-mails removidos são excluídos de forma irreversível. Utilize com responsabilidade.
+
+📊 Contagem de E-mails - Contador.py
+Script que permite contar e-mails em múltiplas contas do Gmail, via protocolo IMAP. Ideal para controle e análise de volume de mensagens.
+
+Funcionalidades:
+
+Conexão segura via IMAP (imap.gmail.com).
+
+Suporte a múltiplas contas (via .env).
+
+Contagem total de e-mails por conta.
+
+Exibição clara dos resultados no terminal.
+
+Requisitos:
+
+Python 3.x
+
+Bibliotecas: imaplib, email, tqdm, dotenv
+
+Arquivo .env com:
+
+main/env = [
+EMAIL_1=seuemail@gmail.com  
+SENHA_1=suasenhaaplicativo  
+EMAIL_2=...  
+ ]
+
+Execução:
+
+//>bash<\\
+/>python Contador.py
+
+📂 Listagem de Pastas - buscar_pasta.py
+Script para listar todas as pastas (labels) de uma ou mais contas Gmail via IMAP. Ajuda a mapear a estrutura das caixas de entrada, incluindo rótulos personalizados, abas como "Promoções", "Social", etc.
+
+Funcionalidades:
+
+Conexão IMAP segura.
+
+Suporte a múltiplas contas via .env.
+
+Decodificação de nomes de pastas com suporte a UTF-7.
+
+Impressão organizada das pastas detectadas por conta.
+
+Execução:
+
+//>bash<\\
+/>python buscar_pasta.py
